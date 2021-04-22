@@ -46,6 +46,7 @@
     <ProjectReference Include="..\BookApp.Persistence.EfCoreSql.Orders\BookApp.Persistence.EfCoreSql.Orders.csproj" />
     <ProjectReference Include="..\BookApp.ServiceLayer.CosmosDirect.Books\BookApp.ServiceLayer.CosmosDirect.Books.csproj" />
     <ProjectReference Include="..\BookApp.ServiceLayer.DefaultSql.Books\BookApp.ServiceLayer.DefaultSql.Books.csproj" />
+    <ProjectReference Include="..\BookApp.ServiceLayer.UdfsSql.Books\BookApp.ServiceLayer.UdfsSql.Books.csproj" />
     <ProjectReference Include="..\BookApp.UI\BookApp.UI.csproj" />
     <ProjectReference Include="..\BookApp.BizLogic.Orders\BookApp.BizLogic.Orders.csproj" />
   </ItemGroup>
