@@ -35,7 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookApp.Infrastructure.Books.Seeding\BookApp.Infrastructure.Books.Seeding.csproj" />
     <ProjectReference Include="..\BookApp.Persistance.EfCoreSql.Books\BookApp.Persistence.EfCoreSql.Books.csproj" />
     <ProjectReference Include="..\BookApp.Persistence.CosmosDb.Books\BookApp.Persistence.CosmosDb.Books.csproj" />
     <ProjectReference Include="..\BookApp.Persistence.EfCoreSql.Orders.DbAccess\BookApp.Persistence.EfCoreSql.Orders.DbAccess.csproj" />
@@ -49,6 +48,7 @@
     <ProjectReference Include="..\BookApp.Orders.Domain\BookApp.Orders.Domain.csproj" />
     <ProjectReference Include="..\BookApp.Books.Infrastructure.CachedValues\BookApp.Books.Infrastructure.CachedValues.csproj" />
     <ProjectReference Include="..\BookApp.Books.Infrastructure.CosmosDb\BookApp.Books.Infrastructure.CosmosDb.csproj" />
+    <ProjectReference Include="..\BookApp.Seeding.Infrastructure.Books\BookApp.Seeding.Infrastructure.Books.csproj" />
   </ItemGroup>
 
 </Project>
