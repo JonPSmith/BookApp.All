@@ -35,7 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookApp.Persistence.CosmosDb.Books\BookApp.Persistence.CosmosDb.Books.csproj" />
     <ProjectReference Include="..\BookApp.Persistence.EfCoreSql.Orders.DbAccess\BookApp.Persistence.EfCoreSql.Orders.DbAccess.csproj" />
     <ProjectReference Include="..\BookApp.Persistence.EfCoreSql.Orders\BookApp.Persistence.EfCoreSql.Orders.csproj" />
     <ProjectReference Include="..\BookApp.ServiceLayer.CosmosDirect.Books\BookApp.ServiceLayer.CosmosDirect.Books.csproj" />
@@ -49,6 +48,7 @@
     <ProjectReference Include="..\BookApp.Books.Infrastructure.CosmosDb\BookApp.Books.Infrastructure.CosmosDb.csproj" />
     <ProjectReference Include="..\BookApp.Seeding.Infrastructure.Books\BookApp.Seeding.Infrastructure.Books.csproj" />
     <ProjectReference Include="..\BookApp.Books.Persistence.EfCoreSql\BookApp.Books.Persistence.EfCoreSql.csproj" />
+    <ProjectReference Include="..\BookApp.Books.Persistence.CosmosDb\BookApp.Books.Persistence.CosmosDb.csproj" />
   </ItemGroup>
 
 </Project>

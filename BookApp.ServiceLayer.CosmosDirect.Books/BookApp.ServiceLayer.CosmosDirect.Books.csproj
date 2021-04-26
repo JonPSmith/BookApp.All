@@ -6,9 +6,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookApp.Infrastructure.LoggingServices\BookApp.Infrastructure.LoggingServices.csproj" />
-    <ProjectReference Include="..\BookApp.Persistence.CosmosDb.Books\BookApp.Persistence.CosmosDb.Books.csproj" />
     <ProjectReference Include="..\BookApp.ServiceLayer.DisplayCommon.Books\BookApp.ServiceLayer.DisplayCommon.Books.csproj" />
     <ProjectReference Include="..\BookApp.Books.Domain\BookApp.Books.Domain.csproj" />
+    <ProjectReference Include="..\BookApp.Books.Persistence.CosmosDb\BookApp.Books.Persistence.CosmosDb.csproj" />
   </ItemGroup>
 
 </Project>
