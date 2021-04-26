@@ -2,11 +2,11 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
-using BookApp.Domain.Books;
-using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.ServiceLayer.UdfsSql.Books.Dtos;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence.EfCoreSql;
+using BookApp.Books.ServiceLayer.UdfsSql.Dtos;
 
-namespace BookApp.ServiceLayer.UdfsSql.Books.QueryObjects
+namespace BookApp.Books.ServiceLayer.UdfsSql.QueryObjects
 {
     public static class BookUdfsListDtoSelect
     {

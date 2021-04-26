@@ -3,7 +3,7 @@
 
 using Microsoft.AspNetCore.Http;
 
-namespace BookApp.ServiceLayer.EfCoreSql.Orders.CheckoutServices.Concrete
+namespace BookApp.Orders.ServiceLayer.EfCoreSql.CheckoutServices.Concrete
 {
     public class BasketCookie : CookieTemplate
     {

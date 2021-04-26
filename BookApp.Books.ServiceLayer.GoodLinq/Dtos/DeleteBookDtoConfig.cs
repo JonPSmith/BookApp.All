@@ -4,10 +4,10 @@
 using System;
 using System.Linq;
 using AutoMapper;
-using BookApp.Domain.Books;
+using BookApp.Books.Domain;
 using GenericServices.Configuration;
 
-namespace BookApp.ServiceLayer.DefaultSql.Books.Dtos
+namespace BookApp.Books.ServiceLayer.GoodLinq.Dtos
 {
     class DeleteBookDtoConfig : PerDtoConfig<DeleteBookDto, Book>
     {

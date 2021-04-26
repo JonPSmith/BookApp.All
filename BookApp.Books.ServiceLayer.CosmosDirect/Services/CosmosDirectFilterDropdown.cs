@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.Persistence.CosmosDb.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
+using BookApp.Books.Persistence.CosmosDb;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
 using Microsoft.Azure.Cosmos;
 
-namespace BookApp.ServiceLayer.CosmosDirect.Books.Services
+namespace BookApp.Books.ServiceLayer.CosmosDirect.Services
 {
     public static class CosmosDirectFilterDropdown
     {

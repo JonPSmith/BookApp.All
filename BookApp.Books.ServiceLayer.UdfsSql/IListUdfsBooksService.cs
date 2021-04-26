@@ -3,10 +3,10 @@
 
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.UdfsSql.Books.Dtos;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.UdfsSql.Dtos;
 
-namespace BookApp.ServiceLayer.UdfsSql.Books
+namespace BookApp.Books.ServiceLayer.UdfsSql
 {
     public interface IListUdfsBooksService
     {

@@ -2,9 +2,9 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
-using BookApp.ServiceLayer.DisplayCommon.Books;
+using BookApp.Books.ServiceLayer.DisplayCommon;
 
-namespace BookApp.ServiceLayer.UdfsSql.Books.Dtos
+namespace BookApp.Books.ServiceLayer.UdfsSql.Dtos
 {
     public class UdfsBookListCombinedDto
     {

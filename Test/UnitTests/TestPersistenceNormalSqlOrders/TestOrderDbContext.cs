@@ -4,8 +4,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BookApp.Domain.Orders;
-using BookApp.Domain.Orders.SupportTypes;
+using BookApp.Orders.Domain;
+using BookApp.Orders.Domain.SupportTypes;
+using BookApp.Orders.Persistence.EfCoreSql;
 using BookApp.Persistence.EfCoreSql.Orders;
 using Test.Mocks;
 using Test.TestHelpers;

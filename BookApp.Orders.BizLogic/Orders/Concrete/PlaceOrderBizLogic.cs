@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.Domain.Orders;
-using BookApp.Domain.Orders.SupportTypes;
-using BookApp.Persistence.EfCoreSql.Orders.DbAccess;
+using BookApp.Orders.Domain;
+using BookApp.Orders.Domain.SupportTypes;
+using BookApp.Orders.Persistence.DbAccess;
 using StatusGeneric;
 
-namespace BookApp.BizLogic.Orders.Orders.Concrete
+namespace BookApp.Orders.BizLogic.Orders.Concrete
 {
     public class PlaceOrderBizLogic : IPlaceOrderBizLogic
     {

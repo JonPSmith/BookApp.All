@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace BookApp.ServiceLayer.EfCoreSql.Orders.OrderServices
+namespace BookApp.Orders.ServiceLayer.EfCoreSql.OrderServices
 {
     public interface IDisplayOrdersService
     {

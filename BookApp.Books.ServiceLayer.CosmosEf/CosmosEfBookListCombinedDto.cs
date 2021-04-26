@@ -2,10 +2,10 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
-using BookApp.Domain.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.ServiceLayer.DisplayCommon;
 
-namespace BookApp.ServiceLayer.CosmosEf.Books
+namespace BookApp.Books.ServiceLayer.CosmosEf
 {
     public class CosmosEfBookListCombinedDto
     {

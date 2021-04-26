@@ -7,13 +7,13 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using BookApp.Domain.Books;
-using BookApp.Persistence.CosmosDb.Books;
-using BookApp.Persistence.EfCoreSql.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence.CosmosDb;
+using BookApp.Books.Persistence.EfCoreSql;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BookApp.Infrastructure.Books.Seeding
+namespace BookApp.Seeding.Infrastructure.Books
 {
     public class BookGenerator : IBookGenerator
     {

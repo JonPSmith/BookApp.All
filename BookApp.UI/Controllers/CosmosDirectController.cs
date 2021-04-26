@@ -4,14 +4,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.Infrastructure.AppParts;
+using BookApp.Books.Persistence.CosmosDb;
+using BookApp.Books.ServiceLayer.CosmosDirect;
+using BookApp.Books.ServiceLayer.CosmosDirect.Services;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
 using BookApp.Infrastructure.LoggingServices;
-using BookApp.Persistence.CosmosDb.Books;
-using BookApp.ServiceLayer.CosmosDirect.Books;
-using BookApp.ServiceLayer.CosmosDirect.Books.Services;
-using BookApp.ServiceLayer.DefaultSql.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
+using BookApp.Main.Infrastructure;
 using BookApp.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 

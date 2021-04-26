@@ -3,14 +3,14 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BookApp.Domain.Books;
-using BookApp.Persistence.Common.QueryObjects;
-using BookApp.Persistence.CosmosDb.Books;
-using BookApp.ServiceLayer.CosmosEf.Books.QueryObjects;
-using BookApp.ServiceLayer.DisplayCommon.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence.CosmosDb;
+using BookApp.Books.ServiceLayer.CosmosEf.QueryObjects;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Common.Persistence.QueryObjects;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookApp.ServiceLayer.CosmosEf.Books.Services
+namespace BookApp.Books.ServiceLayer.CosmosEf.Services
 {
     public class CosmosEfListNoSqlBooksService : ICosmosEfListNoSqlBooksService
     {

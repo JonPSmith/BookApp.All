@@ -5,7 +5,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BookApp.Infrastructure.Books.Seeding
+namespace BookApp.Seeding.Infrastructure.Books
 {
     public interface IBookGenerator
     {

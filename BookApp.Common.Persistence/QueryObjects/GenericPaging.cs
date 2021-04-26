@@ -4,7 +4,7 @@
 using System;
 using System.Linq;
 
-namespace BookApp.Persistence.Common.QueryObjects
+namespace BookApp.Common.Persistence.QueryObjects
 {
     public static class GenericPaging
     {

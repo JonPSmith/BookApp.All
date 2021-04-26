@@ -3,11 +3,10 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
+using BookApp.Books.ServiceLayer.GoodLinq;
 using BookApp.Infrastructure.LoggingServices;
-using BookApp.ServiceLayer.DefaultSql.Books;
-using BookApp.ServiceLayer.DefaultSql.Books.Dtos;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

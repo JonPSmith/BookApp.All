@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using BookApp.Domain.Books.DomainEvents;
-using BookApp.Domain.Books.SupportTypes;
+using BookApp.Books.Domain.DomainEvents;
+using BookApp.Books.Domain.SupportTypes;
 using GenericEventRunner.DomainParts;
 using StatusGeneric;
 
-namespace BookApp.Domain.Books
+namespace BookApp.Books.Domain
 {
     public class Book : EventsAndCreatedUpdated, ISoftDelete
     {

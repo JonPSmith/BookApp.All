@@ -2,8 +2,8 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
-using BookApp.BizLogic.Orders.BasketServices;
-using BookApp.BizLogic.Orders.Orders;
+using BookApp.Orders.BizLogic.BasketServices;
+using BookApp.Orders.BizLogic.Orders;
 using Xunit;
 using Xunit.Extensions.AssertExtensions;
 

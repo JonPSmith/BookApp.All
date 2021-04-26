@@ -2,11 +2,10 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
-using BookApp.ServiceLayer.DefaultSql.Books.QueryObjects;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
 
-namespace BookApp.ServiceLayer.DefaultSql.Books
+namespace BookApp.Books.ServiceLayer.GoodLinq
 {
     public interface IBookFilterDropdownService
     {

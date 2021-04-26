@@ -3,7 +3,8 @@
 
 using System.IO;
 using System.Linq;
-using BookApp.Infrastructure.Books.Seeding;
+using BookApp.Books.Persistence.EfCoreSql;
+using BookApp.Orders.Persistence.EfCoreSql;
 using BookApp.Persistence.EfCoreSql.Books;
 using BookApp.Persistence.EfCoreSql.Orders;
 using EfSchemaCompare;

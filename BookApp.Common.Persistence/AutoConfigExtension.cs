@@ -2,15 +2,12 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using BookApp.Domain.Books.SupportTypes;
-using BookApp.Domain.Orders.SupportTypes;
+using BookApp.Books.Domain.SupportTypes;
+using BookApp.Orders.Domain.SupportTypes;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace BookApp.Persistence.Common
+namespace BookApp.Common.Persistence
 {
     public static class AutoConfigExtension
     {

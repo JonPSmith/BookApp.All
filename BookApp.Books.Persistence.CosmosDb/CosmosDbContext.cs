@@ -1,8 +1,7 @@
-﻿using System;
-using BookApp.Domain.Books;
+﻿using BookApp.Books.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookApp.Persistence.CosmosDb.Books
+namespace BookApp.Books.Persistence.CosmosDb
 {
     public class CosmosDbContext : DbContext //#A
     {

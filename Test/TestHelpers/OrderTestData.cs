@@ -4,7 +4,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BookApp.Domain.Orders;
+using BookApp.Books.Persistence.EfCoreSql;
+using BookApp.Orders.Domain;
+using BookApp.Orders.Persistence.EfCoreSql;
 using BookApp.Persistence.EfCoreSql.Books;
 using BookApp.Persistence.EfCoreSql.Orders;
 using Microsoft.EntityFrameworkCore;

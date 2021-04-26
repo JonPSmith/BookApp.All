@@ -2,11 +2,10 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
+using BookApp.Books.Persistence.EfCoreSql;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
+using BookApp.Books.ServiceLayer.GoodLinq.QueryObjects;
 using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.ServiceLayer.DefaultSql.Books;
-using BookApp.ServiceLayer.DefaultSql.Books.Dtos;
-using BookApp.ServiceLayer.DefaultSql.Books.QueryObjects;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;

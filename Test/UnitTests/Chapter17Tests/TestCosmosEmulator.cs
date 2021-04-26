@@ -4,8 +4,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.Domain.Books;
-using BookApp.Persistence.CosmosDb.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence.CosmosDb;
 using Microsoft.EntityFrameworkCore;
 using TestSupport.Attributes;
 using TestSupport.EfHelpers;

@@ -3,10 +3,10 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BookApp.Domain.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.ServiceLayer.DisplayCommon;
 
-namespace BookApp.ServiceLayer.CosmosEf.Books
+namespace BookApp.Books.ServiceLayer.CosmosEf
 {
     public interface ICosmosEfListNoSqlBooksService
     {

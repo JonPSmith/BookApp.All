@@ -6,16 +6,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.Domain.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence.CosmosDb;
+using BookApp.Books.ServiceLayer.DisplayCommon;
 using BookApp.Infrastructure.LoggingServices;
-using BookApp.Persistence.CosmosDb.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books;
 using Microsoft.Azure.Cosmos;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Logging;
 
-namespace BookApp.ServiceLayer.CosmosDirect.Books.Services
+namespace BookApp.Books.ServiceLayer.CosmosDirect.Services
 {
     public static class CosmosDirectRead
     {

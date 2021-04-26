@@ -4,12 +4,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.ServiceLayer.DefaultSql.Books.QueryObjects;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
+using BookApp.Books.Persistence.EfCoreSql;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
+using BookApp.Books.ServiceLayer.GoodLinq.QueryObjects;
 
-namespace BookApp.ServiceLayer.DefaultSql.Books.Services
+namespace BookApp.Books.ServiceLayer.GoodLinq.Services
 {
     public class BookFilterDropdownService : IBookFilterDropdownService
     {

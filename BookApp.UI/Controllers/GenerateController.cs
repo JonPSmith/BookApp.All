@@ -4,9 +4,10 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using BookApp.Infrastructure.Books.Seeding;
-using BookApp.Persistence.CosmosDb.Books;
+using BookApp.Books.Persistence.CosmosDb;
+using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Persistence.EfCoreSql.Books;
+using BookApp.Seeding.Infrastructure.Books;
 using BookApp.UI.HelperExtensions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;

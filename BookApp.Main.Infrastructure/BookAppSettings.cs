@@ -3,7 +3,7 @@
 
 using System;
 
-namespace BookApp.Infrastructure.AppParts
+namespace BookApp.Main.Infrastructure
 {
     public enum BookAppMenuSettings { Basic, SqlOnly, SqlAndCosmos, CosmosOnly, All}
     public class BookAppSettings

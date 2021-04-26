@@ -3,9 +3,10 @@
 
 using System;
 using System.Linq;
-using BookApp.Domain.Books;
-using BookApp.Domain.Books.DomainEvents;
-using BookApp.Infrastructure.Books.CachedValues.EventHandlers;
+using BookApp.Books.Domain;
+using BookApp.Books.Domain.DomainEvents;
+using BookApp.Books.Infrastructure.CachedValues.EventHandlers;
+using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Persistence.EfCoreSql.Books;
 using GenericEventRunner.ForSetup;
 using Microsoft.EntityFrameworkCore;

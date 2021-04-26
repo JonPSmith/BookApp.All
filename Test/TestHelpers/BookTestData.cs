@@ -4,7 +4,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BookApp.Domain.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Persistence.EfCoreSql.Books;
 
 namespace Test.TestHelpers

@@ -3,10 +3,10 @@
 
 using System;
 using System.Linq;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
 
-namespace BookApp.ServiceLayer.CachedSql.Books.QueryObjects
+namespace BookApp.Books.ServiceLayer.CachedSql.QueryObjects
 {
 
     public static class BookListDtoSort

@@ -5,15 +5,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.Infrastructure.AppParts;
-using BookApp.Persistence.CosmosDb.Books;
-using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.ServiceLayer.CosmosDirect.Books.Services;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
+using BookApp.Books.Persistence.CosmosDb;
+using BookApp.Books.Persistence.EfCoreSql;
+using BookApp.Books.ServiceLayer.CosmosDirect.Services;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
+using BookApp.Main.Infrastructure;
 using Microsoft.Azure.Cosmos;
 
-namespace BookApp.ServiceLayer.CosmosEf.Books.Services
+namespace BookApp.Books.ServiceLayer.CosmosEf.Services
 {
     public class CosmosEfBookFilterDropdownService : ICosmosEfBookFilterDropdownService
     {

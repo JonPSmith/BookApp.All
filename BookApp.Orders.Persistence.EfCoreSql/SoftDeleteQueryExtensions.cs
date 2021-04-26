@@ -4,11 +4,11 @@
 using System;
 using System.Linq.Expressions;
 using System.Reflection;
-using BookApp.Domain.Orders.SupportTypes;
+using BookApp.Orders.Domain.SupportTypes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace BookApp.Persistence.EfCoreSql.Orders
+namespace BookApp.Orders.Persistence.EfCoreSql
 {
     public enum MyQueryFilterTypes { SoftDelete, UserId }       
 

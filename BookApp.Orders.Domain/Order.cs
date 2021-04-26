@@ -4,10 +4,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BookApp.Domain.Orders.SupportTypes;
+using BookApp.Orders.Domain.SupportTypes;
 using StatusGeneric;
 
-namespace BookApp.Domain.Orders
+namespace BookApp.Orders.Domain
 {
     public class Order : IUserId
     {

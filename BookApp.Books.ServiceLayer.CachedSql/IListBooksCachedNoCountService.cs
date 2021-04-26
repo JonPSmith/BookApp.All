@@ -2,10 +2,10 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
 
-namespace BookApp.ServiceLayer.CachedSql.Books
+namespace BookApp.Books.ServiceLayer.CachedSql
 {
     public interface IListBooksCachedNoCountService
     {

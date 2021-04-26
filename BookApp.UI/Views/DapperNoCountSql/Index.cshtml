@@ -1,5 +1,6 @@
 ﻿@using BookApp.UI.HelperExtensions
-@model BookApp.ServiceLayer.DisplayCommon.Books.Dtos.BookListNoCountCombinedDto
+@using BookApp.Books.ServiceLayer.DisplayCommon
+@model BookApp.Books.ServiceLayer.DisplayCommon.Dtos.BookListNoCountCombinedDto
 @{
     ViewData["Title"] = "Dapper SQL NC";
 }
@@ -11,7 +12,7 @@
         <div class="col-sm-2">
             <label>Sort By</label>
             <select asp-for="SortFilterPageData.OrderByOptions" name="OrderByOptions"
-                    asp-items="Html.GetEnumSelectList<BookApp.ServiceLayer.DisplayCommon.Books.OrderByOptions>()"
+                    asp-items="Html.GetEnumSelectList<OrderByOptions>()"
                     class="form-control sort-filter-width"
                     onchange="BookList.sendForm(this)"></select>
         </div>
@@ -19,7 +20,7 @@
         <div class="col-sm-2">
             <label>Filter Type</label>
             <select asp-for="SortFilterPageData.FilterBy" name="FilterBy"
-                    asp-items="Html.GetEnumSelectList<BookApp.ServiceLayer.DisplayCommon.Books.BooksFilterBy>()"
+                    asp-items="Html.GetEnumSelectList<BooksFilterBy>()"
                     class="form-control sort-filter-width"
                     onchange="BookList.filterByHasChanged(this)"></select>
         </div>

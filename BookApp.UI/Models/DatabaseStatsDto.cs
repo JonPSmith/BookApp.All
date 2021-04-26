@@ -2,7 +2,8 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
-using BookApp.Domain.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Persistence.EfCoreSql.Books;
 
 namespace BookApp.UI.Models

@@ -3,10 +3,10 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BookApp.Books.ServiceLayer.CosmosEf;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
 using BookApp.Infrastructure.LoggingServices;
-using BookApp.ServiceLayer.CosmosEf.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookApp.UI.Controllers

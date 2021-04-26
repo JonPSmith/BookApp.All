@@ -3,9 +3,9 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BookApp.Domain.Orders;
+using BookApp.Orders.Domain;
 
-namespace BookApp.Persistence.EfCoreSql.Orders.DbAccess
+namespace BookApp.Orders.Persistence.DbAccess
 {
     public interface IPlaceOrderDbAccess
     {

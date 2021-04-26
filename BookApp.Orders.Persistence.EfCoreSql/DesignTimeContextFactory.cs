@@ -4,7 +4,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace BookApp.Persistence.EfCoreSql.Orders
+namespace BookApp.Orders.Persistence.EfCoreSql
 {
     public class DesignTimeContextFactory : IDesignTimeDbContextFactory<OrderDbContext>          
     {

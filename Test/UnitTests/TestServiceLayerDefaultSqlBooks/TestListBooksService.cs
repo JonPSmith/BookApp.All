@@ -3,11 +3,11 @@
 
 using System.Linq;
 using System.Threading.Tasks;
+using BookApp.Books.Persistence.EfCoreSql;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.GoodLinq.QueryObjects;
+using BookApp.Books.ServiceLayer.GoodLinq.Services;
 using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.ServiceLayer.DefaultSql.Books;
-using BookApp.ServiceLayer.DefaultSql.Books.QueryObjects;
-using BookApp.ServiceLayer.DefaultSql.Books.Services;
-using BookApp.ServiceLayer.DisplayCommon.Books;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;

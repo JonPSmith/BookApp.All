@@ -4,11 +4,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BookApp.Domain.Orders;
-using BookApp.Persistence.EfCoreSql.Orders;
-using BookApp.ServiceLayer.EfCoreSql.Orders.CheckoutServices;
+using BookApp.Orders.Domain;
+using BookApp.Orders.Persistence.EfCoreSql;
+using BookApp.Orders.ServiceLayer.EfCoreSql.CheckoutServices;
 
-namespace BookApp.ServiceLayer.EfCoreSql.Orders.OrderServices.Concrete
+namespace BookApp.Orders.ServiceLayer.EfCoreSql.OrderServices.Concrete
 {
     public class DisplayOrdersService : IDisplayOrdersService
     {

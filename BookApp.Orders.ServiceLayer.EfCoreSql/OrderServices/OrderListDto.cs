@@ -3,9 +3,9 @@
 
 using System;
 using System.Collections.Generic;
-using BookApp.ServiceLayer.EfCoreSql.Orders.CheckoutServices;
+using BookApp.Orders.ServiceLayer.EfCoreSql.CheckoutServices;
 
-namespace BookApp.ServiceLayer.EfCoreSql.Orders.OrderServices
+namespace BookApp.Orders.ServiceLayer.EfCoreSql.OrderServices
 {
     public class OrderListDto
     {

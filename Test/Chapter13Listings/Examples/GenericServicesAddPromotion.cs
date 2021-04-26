@@ -2,7 +2,7 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Threading.Tasks;
-using BookApp.ServiceLayer.DefaultSql.Books.Dtos;
+using BookApp.Books.ServiceLayer.GoodLinq.Dtos;
 using GenericServices;
 using Microsoft.AspNetCore.Mvc;
 

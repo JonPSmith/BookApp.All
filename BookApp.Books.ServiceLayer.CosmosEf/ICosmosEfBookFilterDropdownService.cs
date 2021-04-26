@@ -3,10 +3,10 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
 
-namespace BookApp.ServiceLayer.CosmosEf.Books
+namespace BookApp.Books.ServiceLayer.CosmosEf
 {
     public interface ICosmosEfBookFilterDropdownService
     {

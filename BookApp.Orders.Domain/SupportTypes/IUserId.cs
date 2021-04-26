@@ -3,7 +3,7 @@
 
 using System;
 
-namespace BookApp.Domain.Orders.SupportTypes
+namespace BookApp.Orders.Domain.SupportTypes
 {
     public interface IUserId
     {

@@ -2,9 +2,9 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
-using BookApp.Domain.Books;
+using BookApp.Books.Domain;
 
-namespace BookApp.Infrastructure.Books.CosmosDb.Services
+namespace BookApp.Books.Infrastructure.CosmosDb.Services
 {
     public static class SqlBookToCosmosBookExt
     {

@@ -7,12 +7,12 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
-using BookApp.Domain.Books;
+using BookApp.Books.Domain;
 using Newtonsoft.Json;
 
 [assembly: InternalsVisibleTo("Test")]
 
-namespace BookApp.Infrastructure.Books.Seeding
+namespace BookApp.Seeding.Infrastructure.Books
 {
     public class ManningBookLoad
     {

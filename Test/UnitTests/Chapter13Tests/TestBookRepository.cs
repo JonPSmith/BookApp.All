@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.ServiceLayer.DefaultSql.Books.Dtos;
 using Microsoft.EntityFrameworkCore;
 using StatusGeneric;
 using Test.Chapter13Listings.EfClasses;

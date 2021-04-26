@@ -3,11 +3,12 @@
 
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.BizLogic.Orders.BasketServices;
-using BookApp.BizLogic.Orders.Orders;
+using BookApp.Orders.BizLogic.BasketServices;
+using BookApp.Orders.BizLogic.Orders;
+using BookApp.Orders.Persistence.EfCoreSql;
+using BookApp.Orders.ServiceLayer.EfCoreSql.CheckoutServices.Concrete;
+using BookApp.Orders.ServiceLayer.EfCoreSql.OrderServices.Concrete;
 using BookApp.Persistence.EfCoreSql.Orders;
-using BookApp.ServiceLayer.EfCoreSql.Orders.CheckoutServices.Concrete;
-using BookApp.ServiceLayer.EfCoreSql.Orders.OrderServices.Concrete;
 using BookApp.UI.Controllers;
 using GenericServices.AspNetCore;
 using Microsoft.AspNetCore.Mvc;

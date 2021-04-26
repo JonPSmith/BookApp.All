@@ -3,10 +3,10 @@
 
 using System;
 using System.Linq;
-using BookApp.Domain.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.ServiceLayer.DisplayCommon;
 
-namespace BookApp.ServiceLayer.CosmosEf.Books.QueryObjects
+namespace BookApp.Books.ServiceLayer.CosmosEf.QueryObjects
 {
     public static class CosmosEfBookListDtoFilter
     {

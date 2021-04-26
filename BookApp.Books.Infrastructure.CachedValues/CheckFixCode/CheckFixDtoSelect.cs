@@ -2,9 +2,9 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
-using BookApp.Domain.Books;
+using BookApp.Books.Domain;
 
-namespace BookApp.Infrastructure.Books.CachedValues.CheckFixCode
+namespace BookApp.Books.Infrastructure.CachedValues.CheckFixCode
 {
     public static class CheckFixDtoSelect
     {

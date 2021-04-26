@@ -4,12 +4,12 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using BookApp.Domain.Books;
-using BookApp.Persistence.EfCoreSql.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence.EfCoreSql;
 using Microsoft.EntityFrameworkCore;
 using StatusGeneric;
 
-namespace BookApp.Infrastructure.Books.CachedValues.CheckFixCode
+namespace BookApp.Books.Infrastructure.CachedValues.CheckFixCode
 {
     public static class CheckBookExtension
     {

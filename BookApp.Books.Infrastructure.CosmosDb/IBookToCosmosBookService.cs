@@ -3,9 +3,8 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BookApp.Domain.Books;
 
-namespace BookApp.Infrastructure.Books.CosmosDb
+namespace BookApp.Books.Infrastructure.CosmosDb
 {
     public interface IBookToCosmosBookService
     {

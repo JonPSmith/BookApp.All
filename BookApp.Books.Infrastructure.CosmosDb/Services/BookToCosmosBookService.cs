@@ -7,16 +7,16 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using BookApp.Domain.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence.CosmosDb;
+using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Infrastructure.LoggingServices;
-using BookApp.Persistence.CosmosDb.Books;
-using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.Azure.Cosmos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Logging;
 
-namespace BookApp.Infrastructure.Books.CosmosDb.Services
+namespace BookApp.Books.Infrastructure.CosmosDb.Services
 {
     public class BookToCosmosBookService : IBookToCosmosBookService
     {

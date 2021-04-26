@@ -3,11 +3,11 @@
 
 using System;
 using System.Linq;
-using BookApp.Domain.Books;
+using BookApp.Books.Domain;
 using Microsoft.EntityFrameworkCore;
 using StatusGeneric;
 
-namespace BookApp.Infrastructure.Books.CachedValues.ConcurrencyHandlers
+namespace BookApp.Books.Infrastructure.CachedValues.ConcurrencyHandlers
 {
     public static class BookWithEventsConcurrencyHandler
     {

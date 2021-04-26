@@ -4,12 +4,12 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using BookApp.BizLogic.Orders.BasketServices;
-using BookApp.BizLogic.Orders.Orders;
-using BookApp.Persistence.EfCoreSql.Orders;
+using BookApp.Orders.BizLogic.BasketServices;
+using BookApp.Orders.BizLogic.Orders;
+using BookApp.Orders.Persistence.EfCoreSql;
 using Microsoft.AspNetCore.Http;
 
-namespace BookApp.ServiceLayer.EfCoreSql.Orders.CheckoutServices.Concrete
+namespace BookApp.Orders.ServiceLayer.EfCoreSql.CheckoutServices.Concrete
 {
     //NOTE: This service isn't designed to be created via DI because it takes in the IRequestCookieCollection
     public class CheckoutListService

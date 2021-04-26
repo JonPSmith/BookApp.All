@@ -2,10 +2,10 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
-using BookApp.Domain.Books.SupportTypes;
+using BookApp.Books.Domain.SupportTypes;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookApp.Persistence.EfCoreSql.Books
+namespace BookApp.Books.Persistence.EfCoreSql
 {
     public static class BookDetectChangesExtensions
     {

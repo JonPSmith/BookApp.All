@@ -4,12 +4,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookApp.Books.Persistence.EfCoreSql;
+using BookApp.Books.ServiceLayer.DapperSql.DapperCode;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
+using BookApp.Books.ServiceLayer.GoodLinq;
 using BookApp.Infrastructure.LoggingServices;
 using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.ServiceLayer.DapperSql.Books.DapperCode;
-using BookApp.ServiceLayer.DefaultSql.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookApp.UI.Controllers

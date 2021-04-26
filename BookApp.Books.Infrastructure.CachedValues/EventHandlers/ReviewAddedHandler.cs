@@ -2,11 +2,12 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
-using BookApp.Domain.Books.DomainEvents;
+using BookApp.Books.Domain;
+using BookApp.Books.Domain.DomainEvents;
 using GenericEventRunner.ForHandlers;
 using StatusGeneric;
 
-namespace BookApp.Infrastructure.Books.CachedValues.EventHandlers
+namespace BookApp.Books.Infrastructure.CachedValues.EventHandlers
 {
     public class ReviewAddedHandler :                 
         IBeforeSaveEventHandler<BookReviewAddedEvent> //#A
@@ -14,7 +15,7 @@ namespace BookApp.Infrastructure.Books.CachedValues.EventHandlers
         public IStatusGeneric Handle(object callingEntity,//#B 
             BookReviewAddedEvent domainEvent)             //#B
         {
-            var book = (Domain.Books.Book) callingEntity; //#C
+            var book = (Book) callingEntity; //#C
 
             var totalStars = Math.Round(   //#D
                 book.ReviewsAverageVotes   //#D

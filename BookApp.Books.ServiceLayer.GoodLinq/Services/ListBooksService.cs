@@ -3,15 +3,14 @@
 
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.Persistence.Common.QueryObjects;
-using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.ServiceLayer.DefaultSql.Books.Dtos;
-using BookApp.ServiceLayer.DefaultSql.Books.QueryObjects;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
+using BookApp.Books.Persistence.EfCoreSql;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
+using BookApp.Books.ServiceLayer.GoodLinq.QueryObjects;
+using BookApp.Common.Persistence.QueryObjects;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookApp.ServiceLayer.DefaultSql.Books.Services
+namespace BookApp.Books.ServiceLayer.GoodLinq.Services
 {
     public class ListBooksService : IListBooksService
     {

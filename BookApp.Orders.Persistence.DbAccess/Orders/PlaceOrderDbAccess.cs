@@ -3,12 +3,12 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Mime;
 using System.Threading.Tasks;
-using BookApp.Domain.Orders;
+using BookApp.Orders.Domain;
+using BookApp.Orders.Persistence.EfCoreSql;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookApp.Persistence.EfCoreSql.Orders.DbAccess.Orders
+namespace BookApp.Orders.Persistence.DbAccess.Orders
 {
     public class PlaceOrderDbAccess : IPlaceOrderDbAccess
     {

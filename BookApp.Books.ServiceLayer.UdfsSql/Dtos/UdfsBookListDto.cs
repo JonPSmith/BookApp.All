@@ -3,7 +3,7 @@
 
 using System;
 
-namespace BookApp.ServiceLayer.UdfsSql.Books.Dtos
+namespace BookApp.Books.ServiceLayer.UdfsSql.Dtos
 {
     public class UdfsBookListDto
     {

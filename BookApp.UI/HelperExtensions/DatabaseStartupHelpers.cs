@@ -4,11 +4,13 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.Infrastructure.AppParts;
-using BookApp.Infrastructure.Books.Seeding;
-using BookApp.Persistence.CosmosDb.Books;
+using BookApp.Books.Persistence.CosmosDb;
+using BookApp.Books.Persistence.EfCoreSql;
+using BookApp.Main.Infrastructure;
+using BookApp.Orders.Persistence.EfCoreSql;
 using BookApp.Persistence.EfCoreSql.Books;
 using BookApp.Persistence.EfCoreSql.Orders;
+using BookApp.Seeding.Infrastructure.Books;
 using BookApp.UI.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

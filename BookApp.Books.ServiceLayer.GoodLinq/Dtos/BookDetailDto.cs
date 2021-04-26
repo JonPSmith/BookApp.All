@@ -4,7 +4,7 @@
 using System;
 using Microsoft.AspNetCore.Html;
 
-namespace BookApp.ServiceLayer.DefaultSql.Books.Dtos
+namespace BookApp.Books.ServiceLayer.GoodLinq.Dtos
 {
     public class BookDetailDto
     {

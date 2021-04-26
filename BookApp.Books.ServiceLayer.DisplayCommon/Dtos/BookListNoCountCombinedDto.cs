@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace BookApp.ServiceLayer.DisplayCommon.Books.Dtos
+namespace BookApp.Books.ServiceLayer.DisplayCommon.Dtos
 {
     public class BookListNoCountCombinedDto
     {

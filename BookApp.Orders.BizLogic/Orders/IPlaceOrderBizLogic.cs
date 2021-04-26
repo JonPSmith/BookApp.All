@@ -2,10 +2,10 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Threading.Tasks;
-using BookApp.Domain.Orders;
+using BookApp.Orders.Domain;
 using StatusGeneric;
 
-namespace BookApp.BizLogic.Orders.Orders
+namespace BookApp.Orders.BizLogic.Orders
 {
     public interface IPlaceOrderBizLogic
     {

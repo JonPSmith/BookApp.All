@@ -2,13 +2,13 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Threading.Tasks;
-using BookApp.BizLogic.Orders.BasketServices;
-using BookApp.BizLogic.Orders.Orders;
-using BookApp.ServiceLayer.EfCoreSql.Orders.CheckoutServices.Concrete;
+using BookApp.Orders.BizLogic.BasketServices;
+using BookApp.Orders.BizLogic.Orders;
+using BookApp.Orders.ServiceLayer.EfCoreSql.CheckoutServices.Concrete;
 using Microsoft.AspNetCore.Http;
 using StatusGeneric;
 
-namespace BookApp.ServiceLayer.EfCoreSql.Orders.OrderServices.Concrete
+namespace BookApp.Orders.ServiceLayer.EfCoreSql.OrderServices.Concrete
 {
     //NOTE: this service is build this way to allow unit testing. Passing HttpAccessor would be easier, but very hard to test
     public class PlaceOrderService

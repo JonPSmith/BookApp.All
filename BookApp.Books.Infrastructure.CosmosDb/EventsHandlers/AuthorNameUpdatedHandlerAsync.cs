@@ -1,18 +1,18 @@
 ﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-using GenericEventRunner.ForHandlers;
-using StatusGeneric;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.Domain.Books;
-using BookApp.Domain.Books.DomainEvents;
-using BookApp.Persistence.EfCoreSql.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.Domain.DomainEvents;
+using BookApp.Books.Persistence.EfCoreSql;
+using GenericEventRunner.ForHandlers;
 using Microsoft.EntityFrameworkCore;
 using NetCore.AutoRegisterDi;
+using StatusGeneric;
 
-namespace BookApp.Infrastructure.Books.CosmosDb.EventsHandlers
+namespace BookApp.Books.Infrastructure.CosmosDb.EventsHandlers
 {
     [DoNotAutoRegister]
     public class AuthorNameUpdatedHandlerAsync : IDuringSaveEventHandlerAsync<AuthorNameUpdatedEvent>

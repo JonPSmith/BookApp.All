@@ -2,7 +2,7 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
-using BookApp.Infrastructure.AppParts;
+using BookApp.Main.Infrastructure;
 using Microsoft.Extensions.Configuration;
 
 namespace BookApp.UI.Services

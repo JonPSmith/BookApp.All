@@ -3,11 +3,11 @@
 
 using System;
 using System.Linq;
-using BookApp.Domain.Books;
+using BookApp.Books.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace BookApp.Infrastructure.Books.CachedValues.ConcurrencyHandlers
+namespace BookApp.Books.Infrastructure.CachedValues.ConcurrencyHandlers
 {
     public class FixConcurrencyMethods
     {

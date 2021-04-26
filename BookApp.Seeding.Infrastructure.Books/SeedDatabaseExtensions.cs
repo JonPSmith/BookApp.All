@@ -3,12 +3,11 @@
 
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using BookApp.Domain.Books;
-using BookApp.Persistence.EfCoreSql.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence.EfCoreSql;
 
-namespace BookApp.Infrastructure.Books.Seeding
+namespace BookApp.Seeding.Infrastructure.Books
 {
     public static class SeedDatabaseExtensions
     {

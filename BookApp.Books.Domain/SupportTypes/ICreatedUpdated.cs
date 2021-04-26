@@ -3,7 +3,7 @@
 
 using System;
 
-namespace BookApp.Domain.Books.SupportTypes
+namespace BookApp.Books.Domain.SupportTypes
 {
     public interface ICreatedUpdated
     {

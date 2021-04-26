@@ -4,10 +4,10 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 
-public enum DiffConfigs {Nothing, AddSchema, AddSequence, SetDefaultCol, SetComputedCol}
-
 namespace Test.Chapter17Listings
 {
+    public enum DiffConfigs {Nothing, AddSchema, AddSequence, SetDefaultCol, SetComputedCol}
+
     public class DiffConfigDbContext : DbContext
     {
         public DiffConfigs Config { get; private set; }

@@ -3,11 +3,10 @@
 
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.ServiceLayer.DefaultSql.Books.Dtos;
-using BookApp.ServiceLayer.DisplayCommon.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
+using BookApp.Books.ServiceLayer.DisplayCommon;
+using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
 
-namespace BookApp.ServiceLayer.DefaultSql.Books
+namespace BookApp.Books.ServiceLayer.GoodLinq
 {
     public interface IListBooksService
     {

@@ -4,12 +4,12 @@
 using System;
 using System.Linq.Expressions;
 using System.Reflection;
-using BookApp.Domain.Books.SupportTypes;
-using BookApp.Domain.Orders.SupportTypes;
+using BookApp.Books.Domain.SupportTypes;
+using BookApp.Orders.Domain.SupportTypes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace BookApp.Persistence.Common
+namespace BookApp.Common.Persistence
 {
     public enum MyQueryFilterTypes { SoftDelete, UserId }       //#A
 

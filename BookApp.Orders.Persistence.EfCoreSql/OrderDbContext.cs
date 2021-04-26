@@ -3,12 +3,12 @@
 
 using System;
 using System.Reflection;
-using BookApp.Domain.Orders;
-using BookApp.Domain.Orders.SupportTypes;
-using BookApp.Persistence.Common;
+using BookApp.Common.Persistence;
+using BookApp.Orders.Domain;
+using BookApp.Orders.Domain.SupportTypes;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookApp.Persistence.EfCoreSql.Orders
+namespace BookApp.Orders.Persistence.EfCoreSql
 {
     public class OrderDbContext : DbContext, IUserId                   
     {

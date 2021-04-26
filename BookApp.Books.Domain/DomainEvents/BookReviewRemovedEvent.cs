@@ -4,7 +4,7 @@
 using System;
 using GenericEventRunner.DomainParts;
 
-namespace BookApp.Domain.Books.DomainEvents
+namespace BookApp.Books.Domain.DomainEvents
 {
     public class BookReviewRemovedEvent : IEntityEvent
     {

@@ -1,10 +1,10 @@
 ﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-using BookApp.Domain.Books;
+using BookApp.Books.Domain;
 using GenericServices;
 
-namespace BookApp.ServiceLayer.DefaultSql.Books.Dtos
+namespace BookApp.Books.ServiceLayer.GoodLinq.Dtos
 {
     public class AlterSoftDeleteDto : ILinkToEntity<Book>
     {

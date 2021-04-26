@@ -3,7 +3,7 @@
 
 using System;
 
-namespace BookApp.Persistence.EfCoreSql.Orders
+namespace BookApp.Orders.Persistence.EfCoreSql
 {
     public interface IUserIdService
     {

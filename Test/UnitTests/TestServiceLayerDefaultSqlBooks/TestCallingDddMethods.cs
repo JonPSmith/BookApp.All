@@ -4,9 +4,10 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using BookApp.Domain.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence.EfCoreSql;
+using BookApp.Books.ServiceLayer.GoodLinq.Dtos;
 using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.ServiceLayer.DefaultSql.Books.Dtos;
 using GenericServices.PublicButHidden;
 using GenericServices.Setup;
 using Microsoft.EntityFrameworkCore;

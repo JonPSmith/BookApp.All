@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Text;
-using BookApp.BizLogic.Orders.Orders;
+using BookApp.Orders.BizLogic.Orders;
 
-namespace BookApp.BizLogic.Orders.BasketServices
+namespace BookApp.Orders.BizLogic.BasketServices
 {
     public class CheckoutCookieService
     {

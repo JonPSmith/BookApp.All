@@ -6,14 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using BookApp.Domain.Books;
-using BookApp.Domain.Books.SupportTypes;
-using BookApp.Persistence.EfCoreSql.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.Domain.SupportTypes;
+using BookApp.Books.Persistence.EfCoreSql;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using StatusGeneric;
 
-namespace BookApp.Infrastructure.Books.CachedValues.CheckFixCode
+namespace BookApp.Books.Infrastructure.CachedValues.CheckFixCode
 {
     public class CheckFixCacheValuesService : ICheckFixCacheValuesService
     {

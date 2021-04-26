@@ -2,12 +2,12 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
-using BookApp.BizLogic.Orders.BasketServices;
-using BookApp.Persistence.EfCoreSql.Orders;
-using BookApp.ServiceLayer.EfCoreSql.Orders.CheckoutServices.Concrete;
+using BookApp.Orders.BizLogic.BasketServices;
+using BookApp.Orders.Persistence.EfCoreSql;
+using BookApp.Orders.ServiceLayer.EfCoreSql.CheckoutServices.Concrete;
 using Microsoft.AspNetCore.Http;
 
-namespace BookApp.ServiceLayer.EfCoreSql.Orders.UserIdServices
+namespace BookApp.Orders.ServiceLayer.EfCoreSql.UserIdServices
 {
     public class UserIdService : IUserIdService
     {

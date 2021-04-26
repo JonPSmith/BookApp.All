@@ -1,14 +1,13 @@
 ﻿// Copyright (c) 2019 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
-using BookApp.Domain.Books.SupportTypes;
+using BookApp.Books.Domain.SupportTypes;
 
 [assembly: InternalsVisibleTo("Test")]
 
-namespace BookApp.Domain.Books
+namespace BookApp.Books.Domain
 {
     public class Review : EventsAndCreatedUpdated
     {

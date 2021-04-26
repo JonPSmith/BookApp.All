@@ -4,7 +4,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using BookApp.Infrastructure.Books.Seeding;
+using BookApp.Seeding.Infrastructure.Books;
 using Newtonsoft.Json;
 using TestSupport.Helpers;
 using Xunit;

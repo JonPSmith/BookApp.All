@@ -2,13 +2,13 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
-using BookApp.Domain.Books;
-using BookApp.Domain.Books.DomainEvents;
-using BookApp.Persistence.EfCoreSql.Books;
+using BookApp.Books.Domain;
+using BookApp.Books.Domain.DomainEvents;
+using BookApp.Books.Persistence.EfCoreSql;
 using GenericEventRunner.ForHandlers;
 using StatusGeneric;
 
-namespace BookApp.Infrastructure.Books.CachedValues.EventHandlers
+namespace BookApp.Books.Infrastructure.CachedValues.EventHandlers
 {
     public class AuthorNameUpdatedHandler : 
         IBeforeSaveEventHandler<AuthorNameUpdatedEvent> //#A

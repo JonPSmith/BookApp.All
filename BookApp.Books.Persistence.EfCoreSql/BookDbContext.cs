@@ -2,12 +2,12 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Reflection;
-using BookApp.Domain.Books;
-using BookApp.Persistence.Common;
+using BookApp.Books.Domain;
+using BookApp.Common.Persistence;
 using GenericEventRunner.ForDbContext;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookApp.Persistence.EfCoreSql.Books
+namespace BookApp.Books.Persistence.EfCoreSql
 {
     public class BookDbContext                  //#A
         : DbContextWithEvents<BookDbContext>    //#B

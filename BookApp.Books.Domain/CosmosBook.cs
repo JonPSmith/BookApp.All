@@ -3,9 +3,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace BookApp.Domain.Books
+namespace BookApp.Books.Domain
 {
     public class CosmosBook 
     {
