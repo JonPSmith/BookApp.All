@@ -26,7 +26,7 @@ namespace Test.UnitTests.TestInfrastructureBookSeeding
         {
             //SETUP
             var callingAssemblyPath = TestData.GetCallingAssemblyTopLevelDir();
-            var fileDir = Path.GetFullPath(Path.Combine(callingAssemblyPath, "..\\BookApp.UI\\wwwroot\\seedData"));
+            var fileDir = Path.GetFullPath(Path.Combine(callingAssemblyPath, "..\\BookApp.Main.FrontEnd\\wwwroot\\seedData"));
             var filePath = Directory.GetFiles(fileDir, "ManningBooks*.json").FirstOrDefault();
 
             //ATTEMPT
@@ -47,7 +47,7 @@ namespace Test.UnitTests.TestInfrastructureBookSeeding
         {
             //SETUP
             var callingAssemblyPath = TestData.GetCallingAssemblyTopLevelDir();
-            var fileDir = Path.GetFullPath(Path.Combine(callingAssemblyPath, "..\\BookApp.UI\\wwwroot\\seedData"));
+            var fileDir = Path.GetFullPath(Path.Combine(callingAssemblyPath, "..\\BookApp.Main.FrontEnd\\wwwroot\\seedData"));
             var filePath = Directory.GetFiles(fileDir, "ManningBooks*.json").FirstOrDefault();
 
             //ATTEMPT
@@ -66,7 +66,7 @@ namespace Test.UnitTests.TestInfrastructureBookSeeding
         {
             //SETUP
             var callingAssemblyPath = TestData.GetCallingAssemblyTopLevelDir();
-            var fileDir = Path.GetFullPath(Path.Combine(callingAssemblyPath, "..\\BookApp.UI\\wwwroot\\seedData"));
+            var fileDir = Path.GetFullPath(Path.Combine(callingAssemblyPath, "..\\BookApp.Main.FrontEnd\\wwwroot\\seedData"));
             var filePath = Directory.GetFiles(fileDir, "ManningBooks*.json").FirstOrDefault();
 
             //ATTEMPT
@@ -84,7 +84,7 @@ namespace Test.UnitTests.TestInfrastructureBookSeeding
         {
             //SETUP
             var callingAssemblyPath = TestData.GetCallingAssemblyTopLevelDir();
-            var fileDir = Path.GetFullPath(Path.Combine(callingAssemblyPath, "..\\BookApp.UI\\wwwroot\\seedData"));
+            var fileDir = Path.GetFullPath(Path.Combine(callingAssemblyPath, "..\\BookApp.Main.FrontEnd\\wwwroot\\seedData"));
             var filePath = Directory.GetFiles(fileDir, "ManningBooks*.json").FirstOrDefault();
 
             //ATTEMPT
@@ -110,7 +110,7 @@ namespace Test.UnitTests.TestInfrastructureBookSeeding
         {
             //SETUP
             var callingAssemblyPath = TestData.GetCallingAssemblyTopLevelDir();
-            var fileDir = Path.GetFullPath(Path.Combine(callingAssemblyPath, "..\\BookApp.UI\\wwwroot\\seedData"));
+            var fileDir = Path.GetFullPath(Path.Combine(callingAssemblyPath, "..\\BookApp.Main.FrontEnd\\wwwroot\\seedData"));
             var filePath = Directory.GetFiles(fileDir, "ManningBooks*.json").FirstOrDefault();
 
             //ATTEMPT
