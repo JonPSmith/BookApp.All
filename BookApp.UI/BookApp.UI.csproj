@@ -53,7 +53,6 @@
   <ItemGroup>
     <ProjectReference Include="..\BookApp.BackgroundTasks\BookApp.BackgroundTasks.csproj" />
     <ProjectReference Include="..\BookApp.Infrastructure.LoggingServices\BookApp.Infrastructure.LoggingServices.csproj" />
-    <ProjectReference Include="..\BookApp.ServiceLayer.EfCoreSql.Orders\BookApp.ServiceLayer.EfCoreSql.Orders.csproj" />
     <ProjectReference Include="..\BookApp.ServiceLayer.UdfsSql.Books\BookApp.ServiceLayer.UdfsSql.Books.csproj" />
     <ProjectReference Include="..\BookApp.ServiceLayer.UdfsSql.Books\BookApp.ServiceLayer.UdfsSql.Books.csproj" />
     <ProjectReference Include="..\BookApp.Orders.BizLogic\BookApp.Orders.BizLogic.csproj" />
@@ -73,6 +72,7 @@
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.CosmosEf\BookApp.Books.ServiceLayer.CosmosEf.csproj" />
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.DapperSql\BookApp.Books.ServiceLayer.DapperSql.csproj" />
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.GoodLinq\BookApp.Books.ServiceLayer.GoodLinq.csproj" />
+    <ProjectReference Include="..\BookApp.Orders.ServiceLayer.EfCoreSql\BookApp.Orders.ServiceLayer.EfCoreSql.csproj" />
   </ItemGroup>
 
 
