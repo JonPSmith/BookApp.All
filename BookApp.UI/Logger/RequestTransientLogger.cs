@@ -1,8 +1,8 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
-using BookApp.Infrastructure.LoggingServices;
+using BookApp.Main.Infrastructure.LoggingServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.Extensions.Logging;
@@ -18,12 +18,12 @@ namespace BookApp.UI.Logger
 
         private readonly Func<IHttpContextAccessor> _httpAccessor;
 
-        public static LogLevel LogThisAndAbove { get; set; } = LogLevel.Information;
-
         public RequestTransientLogger(Func<IHttpContextAccessor> httpAccessor)
         {
             _httpAccessor = httpAccessor;
         }
+
+        public static LogLevel LogThisAndAbove { get; set; } = LogLevel.Information;
 
         public ILogger CreateLogger(string categoryName)
         {

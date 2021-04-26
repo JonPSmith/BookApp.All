@@ -1,13 +1,11 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using BookApp.Books.Domain;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;
@@ -55,7 +53,7 @@ namespace Test.UnitTests.TestPersistenceSqlBooks
             //ATTEMPT
             context.ChangeTracker.Clear();
             var books = context.Books.Include(x => x.Reviews)
-                .Include(x => x.AuthorsLink).ThenInclude(x => x.Author).ToList();
+                .Include(x => x.AuthorsLink).ThenInclude<Book, BookAuthor, Author>(x => x.Author).ToList();
 
             //VERIFY
             books.All(x => x.AuthorsLink.Single().Author != null).ShouldBeTrue();

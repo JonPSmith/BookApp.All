@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2019 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -13,17 +13,16 @@ using BookApp.Books.Persistence.EfCoreSql;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BookApp.Seeding.Infrastructure.Books
+namespace BookApp.Books.Infrastructure.Seeding
 {
     public class BookGenerator : IBookGenerator
     {
-        private readonly DbContextOptions<BookDbContext> _sqlOptions;
-        private readonly DbContextOptions<CosmosDbContext> _cosmosOptions;
-        private List<Book> _loadedBooks;
-
         private const int AddPromotionEvery = 7;
         private const int MaxReviewsPerBook = 12;
+        private readonly DbContextOptions<CosmosDbContext> _cosmosOptions;
         private readonly Random _random = new Random(1); //Used to create random review star ratings. Seeded for same sequence
+        private readonly DbContextOptions<BookDbContext> _sqlOptions;
+        private List<Book> _loadedBooks;
 
         public BookGenerator(IServiceProvider provider)
         {

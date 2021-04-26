@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using Test.Chapter12Listings.EventInterfacesEtc;
@@ -8,7 +8,7 @@ namespace Test.Chapter12Listings.EventRunnerCode
     internal abstract class EventHandlerRunner               //#A        
     {
         public abstract void HandleEvent                     //#A
-            (IDomainEvent domainEvent);                      //#A
+            (IDomainEvent domainEvent); //#A
     }
 
     internal class EventHandlerRunner<T> : EventHandlerRunner //#B
@@ -19,13 +19,13 @@ namespace Test.Chapter12Listings.EventRunnerCode
         public EventHandlerRunner(IEventHandler<T> handler)   //#C
         {                                                     //#C
             _handler = handler;                               //#C
-        }                                                     //#C
+        } //#C
 
         public override void HandleEvent                      //#D
             (IDomainEvent domainEvent)                        //#D
         {                                                     //#D
             _handler.HandleEvent((T)domainEvent);             //#D
-        }                                                     //#D
+        } //#D
     }
     /****************************************************
     #A By defining a non-generic method you can run the generic event handler

@@ -1,9 +1,7 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Test.Chapter13Listings.EfClasses;
@@ -27,7 +25,6 @@ namespace Test.Chapter13Listings.Repositories
                 throw new Exception("Could not find book");  //#G
             return book; //#H
         }
-
     }
     /**************************************************************
     #A The book repository inherits the generic repository to get the general commands

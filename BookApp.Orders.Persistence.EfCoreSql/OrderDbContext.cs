@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -12,8 +12,6 @@ namespace BookApp.Orders.Persistence.EfCoreSql
 {
     public class OrderDbContext : DbContext, IUserId                   
     {
-        public Guid UserId { get; private set; }                      
-
         public OrderDbContext(DbContextOptions<OrderDbContext> options,   
             IUserIdService userIdService = null)                        
             : base(options)                                           
@@ -24,6 +22,7 @@ namespace BookApp.Orders.Persistence.EfCoreSql
 
         public DbSet<Order> Orders { get; set; }
         public DbSet<BookView> BookViews { get; set; }
+        public Guid UserId { get; private set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)                 
         {
@@ -32,7 +31,6 @@ namespace BookApp.Orders.Persistence.EfCoreSql
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
-
     }
 }
 /******************************************************************************

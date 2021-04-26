@@ -1,12 +1,10 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
-using TestSupport.EfHelpers;
 using TestSupport.Helpers;
 using Xunit;
 using Xunit.Abstractions;
@@ -16,8 +14,8 @@ namespace Test.UnitTests.Chapter17Tests
 {
     public class TestUsingTransactionInUnitTests
     {
-        private readonly ITestOutputHelper _output;
         private readonly string _connectionString;
+        private readonly ITestOutputHelper _output;
 
         public TestUsingTransactionInUnitTests(ITestOutputHelper output)
         {
@@ -63,7 +61,5 @@ namespace Test.UnitTests.Chapter17Tests
         #D And check it worked
         #E When the unit test method ends the transaction will be disposed and will roll back the changes made in the unit test 
          ****************************************************************/
-
-
     }
 }

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Threading.Tasks;
@@ -18,7 +18,7 @@ namespace Test.Chapter13Listings.Examples
             GenericRepository<Book> repository) //#A
         {                                       //#A
             _repository = repository;           //#A
-        }                                       //#A
+        } //#A
 
         //public async Task<IActionResult> AddPromotion(int id)
         public async Task<AddPromotionDto> AddPromotion(int id)
@@ -65,6 +65,5 @@ namespace Test.Chapter13Listings.Examples
         #D You call the AddPromotion access method with the two properties from the dto
         #E The access method returned no errors, so you persist the data to the database
          ****************************************************************/
-
     }
 }

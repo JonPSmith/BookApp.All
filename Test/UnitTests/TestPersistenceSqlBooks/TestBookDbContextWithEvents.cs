@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -7,7 +7,6 @@ using BookApp.Books.Domain;
 using BookApp.Books.Domain.DomainEvents;
 using BookApp.Books.Infrastructure.CachedValues.EventHandlers;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
 using GenericEventRunner.ForSetup;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
@@ -164,6 +163,5 @@ namespace Test.UnitTests.TestPersistenceSqlBooks
             books.ForEach(x => x.LastUpdatedUtc.ShouldBeInRange(DateTime.UtcNow.AddMilliseconds(-500), timeNow));
             books.ForEach(x => x.NotUpdatedYet.ShouldBeTrue());
         }
-
     }
 }

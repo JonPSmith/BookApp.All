@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2019 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 namespace BookApp.Books.ServiceLayer.DisplayCommon
@@ -12,6 +12,14 @@ namespace BookApp.Books.ServiceLayer.DisplayCommon
         /// This holds the possible page sizes
         /// </summary>
         public int[] PageSizes = new[] {5, 10, 20, 50, 100, 500, 1000};
+
+        public bool PrevPageValid { get; private set; }
+        public bool NextPageValid { get; private set; }
+
+        /// <summary>
+        /// This holds the state of the key parts of the SortFilterPage parts 
+        /// </summary>
+        public string PrevCheckState { get; set; }
 
         public OrderByOptions OrderByOptions { get; set; }
 
@@ -27,14 +35,6 @@ namespace BookApp.Books.ServiceLayer.DisplayCommon
         public int PageSize { get; set; } = DefaultPageSize;
 
         public bool NoCount { get; } = true;
-
-        public bool PrevPageValid { get; private set; }
-        public bool NextPageValid { get; private set; }
-
-        /// <summary>
-        /// This holds the state of the key parts of the SortFilterPage parts 
-        /// </summary>
-        public string PrevCheckState { get; set; }
 
 
         public void SetupRestOfDto(int numEntriesRead)

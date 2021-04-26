@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -11,12 +11,12 @@ namespace Test.Chapter12Listings.EventRunnerCode
 {
     public class EventRunnerAsync : IEventRunnerAsync                
     {
-        private readonly IServiceProvider _serviceProvider;          
-                                                                     
+        private readonly IServiceProvider _serviceProvider;
+
         public EventRunnerAsync(IServiceProvider serviceProvider)    
         {                                                            
             _serviceProvider = serviceProvider;                      
-        }                                                            
+        }
 
         public async Task RunEventsAsync(DbContext context)          //#A
         {

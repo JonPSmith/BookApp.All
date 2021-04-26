@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -21,15 +21,6 @@ namespace Test.UnitTests.Chapter17Tests
         public TestSqliteLimitations(ITestOutputHelper output)
         {
             _output = output;
-        }
-
-        //see https://docs.microsoft.com/en-us/ef/core/modeling/dynamic-model
-        private class DynamicModelCacheKeyFactory : IModelCacheKeyFactory
-        {
-            public object Create(DbContext context)
-                => context is DiffConfigDbContext dynamicContext
-                    ? (context.GetType(), dynamicContext.Config)
-                    : (object)context.GetType();
         }
 
         [Fact]
@@ -111,6 +102,15 @@ namespace Test.UnitTests.Chapter17Tests
 
             //VERIFY
             ex.Message.ShouldEqual("SQLite Error 1: 'near \"IF\": syntax error'.");
+        }
+
+        //see https://docs.microsoft.com/en-us/ef/core/modeling/dynamic-model
+        private class DynamicModelCacheKeyFactory : IModelCacheKeyFactory
+        {
+            public object Create(DbContext context)
+                => context is DiffConfigDbContext dynamicContext
+                    ? (context.GetType(), dynamicContext.Config)
+                    : (object)context.GetType();
         }
     }
 }

@@ -1,14 +1,13 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using BookApp.Books.Infrastructure.Seeding;
 using BookApp.Books.Persistence.CosmosDb;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.Seeding.Infrastructure.Books;
 using Microsoft.Extensions.DependencyInjection;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;
@@ -21,12 +20,11 @@ namespace Test.UnitTests.TestInfrastructureBookSeeding
 {
     public class TestBookGeneratorWithCosmos : IDisposable
     {
+        private readonly CosmosDbContext _cosmosContext;
         private readonly ITestOutputHelper _output;
 
-        private readonly CosmosDbContext _cosmosContext;
-        private readonly BookDbContext _sqlContext;
-
         private readonly IServiceProvider _serviceProvider;
+        private readonly BookDbContext _sqlContext;
 
         public TestBookGeneratorWithCosmos(ITestOutputHelper output)
         {
@@ -99,6 +97,5 @@ namespace Test.UnitTests.TestInfrastructureBookSeeding
             cosmosBooks.Count(x => x.ReviewsCount > 0).ShouldEqual(13);
             //Can't get exact review value compare
         }
-
     }
 }

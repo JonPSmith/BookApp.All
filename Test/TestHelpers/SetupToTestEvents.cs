@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2019 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -18,7 +18,6 @@ namespace Test.TestHelpers
 {
     public static class SetupToTestEvents
     {
-
         /// <summary>
         /// This extension method provides a way to set up a DbContext with an EventsRunner and also registers all
         /// the event handlers in the assembly that the TRunner class is in. 

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -9,7 +9,6 @@ using BookApp.Books.Domain;
 using BookApp.Books.Infrastructure.CosmosDb.Services;
 using BookApp.Books.Persistence.CosmosDb;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.Azure.Cosmos;
 using Test.Chapter16Listings;
 using Test.TestHelpers;
@@ -23,10 +22,10 @@ namespace Test.UnitTests.TestPersistenceCosmosDbBooks
 {
     public class TestDirectQueryCosmosDb : IDisposable
     {
-        private ITestOutputHelper _output;
-        private readonly CosmosDbContext _cosmosContext;
         private readonly Container _cosmosContainer;
+        private readonly CosmosDbContext _cosmosContext;
         private readonly BookDbContext _sqlContext;
+        private ITestOutputHelper _output;
 
         public TestDirectQueryCosmosDb(ITestOutputHelper output)
         {
@@ -219,6 +218,5 @@ namespace Test.UnitTests.TestPersistenceCosmosDbBooks
 
             //VERIFY
         }
-
     }
 }

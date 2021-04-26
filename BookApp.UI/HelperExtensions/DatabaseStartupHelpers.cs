@@ -1,28 +1,28 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using BookApp.Books.Infrastructure.Seeding;
 using BookApp.Books.Persistence.CosmosDb;
 using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Main.Infrastructure;
 using BookApp.Orders.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.Persistence.EfCoreSql.Orders;
-using BookApp.Seeding.Infrastructure.Books;
 using BookApp.UI.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
 
 namespace BookApp.UI.HelperExtensions
 {
     public static class DatabaseStartupHelpers
     {
+        private const string SecretStart = "Secret|";
+        private const string EmulatorString = "Emulator";
 
         /// <summary>
         /// This makes sure the database is created/updated
@@ -101,9 +101,6 @@ namespace BookApp.UI.HelperExtensions
 
             return new CosmosDbSettings(connectionString, settings.CosmosDatabaseName);
         }
-
-        private const string SecretStart = "Secret|";
-        private const string EmulatorString = "Emulator";
 
         private static string GetConnectionString(this IConfiguration config, string setupValue, bool cosmosConnection)
         {

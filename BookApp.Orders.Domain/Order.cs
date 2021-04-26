@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -16,13 +16,13 @@ namespace BookApp.Orders.Domain
         private Order() { }
 
         public int OrderId { get; private set; }
-
-        public Guid UserId { get; private set; }
         public DateTime DateOrderedUtc { get; private set; }
 
         // relationships
 
         public IReadOnlyCollection<LineItem> LineItems => _lineItems?.ToList();
+
+        public Guid UserId { get; private set; }
 
         public static IStatusGeneric<Order> CreateOrder  //#A
             (Guid userId,  //#B
@@ -55,6 +55,5 @@ namespace BookApp.Orders.Domain
         #G This is a double-check that the Order is valid.
         #H This returns the status with the Order. If there are errors the status sets the result to null
          ***************************************************************/
-
     }
 }

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
@@ -55,6 +55,5 @@ namespace Test.Chapter12Listings.EventRunnerCode
         #G This finds all the classes that have the IEventHandler<T> interface, plus the interface type
         #H Then it registers each class with their interface
          ************************************************************/
-
     }
 }

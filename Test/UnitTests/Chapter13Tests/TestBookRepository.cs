@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -33,7 +33,7 @@ namespace Test.UnitTests.Chapter13Tests
             //VERIFY
             context.ChangeTracker.Clear();
             var bookWithAuthor = context.Books
-                .Include(x => x.AuthorsLink).ThenInclude(x => x.Author)
+                .Include(x => x.AuthorsLink).ThenInclude<Book, BookAuthor, Author>(x => x.Author)
                 .Single();
             bookWithAuthor.Title.ShouldEqual("Test");
             bookWithAuthor.PublishedOn.ShouldEqual(new DateTime(2019, 12, 31));

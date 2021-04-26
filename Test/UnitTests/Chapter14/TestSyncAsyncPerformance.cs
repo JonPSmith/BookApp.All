@@ -1,11 +1,10 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
 using System.Threading.Tasks;
 using BookApp.Books.Domain;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;
@@ -16,10 +15,10 @@ namespace Test.UnitTests.Chapter14
 {
     public class TestSyncAsyncPerformance
     {
-        private readonly ITestOutputHelper _output;
+        private readonly int _firstBookId;
 
         private readonly DbContextOptions<BookDbContext> _options;
-        private readonly int _firstBookId;
+        private readonly ITestOutputHelper _output;
 
         public TestSyncAsyncPerformance(ITestOutputHelper output)
         {
@@ -73,17 +72,18 @@ namespace Test.UnitTests.Chapter14
             return context.Books
                 .AsNoTracking()
                 .Include(x => x.AuthorsLink)
-                .ThenInclude(x => x.Author)
+                .ThenInclude<Book, BookAuthor, Author>(x => x.Author)
                 .Include(x => x.Reviews)
                 .Include(x => x.Tags);
         }
+
         private IQueryable<Book> EagerLoadingBookSplit(BookDbContext context)
         {
             return context.Books
                 .AsSplitQuery()
                 .AsNoTracking()
                 .Include(x => x.AuthorsLink)
-                .ThenInclude(x => x.Author)
+                .ThenInclude<Book, BookAuthor, Author>(x => x.Author)
                 .Include(x => x.Reviews)
                 .Include(x => x.Tags);
         }
@@ -94,7 +94,7 @@ namespace Test.UnitTests.Chapter14
             return context.Books
                 .AsNoTracking()
                 .Include(x => x.AuthorsLink)
-                .ThenInclude(x => x.Author)
+                .ThenInclude<Book, BookAuthor, Author>(x => x.Author)
                 .Include(x => x.Reviews)
                 .Include(x => x.Tags)
                 .Where(b => b.Reviews.ToList().Count > 3)
@@ -128,6 +128,5 @@ namespace Test.UnitTests.Chapter14
                 }
             }
         }
-
     }
 }

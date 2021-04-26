@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using BookApp.Books.Domain;
 using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Books.ServiceLayer.GoodLinq.Dtos;
-using BookApp.Persistence.EfCoreSql.Books;
 using GenericServices.PublicButHidden;
 using GenericServices.Setup;
 using Microsoft.EntityFrameworkCore;

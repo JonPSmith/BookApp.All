@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using Test.Chapter12Listings.EventInterfacesEtc;
@@ -8,6 +8,7 @@ namespace Test.Chapter12Listings.DomainEventEfClasses
 {
     public class Quote : AddEventsToEntity
     {
+        private Location _whereInstall;
         private Quote(){} //needed by EF Core
 
         public Quote(Location location)
@@ -32,7 +33,6 @@ namespace Test.Chapter12Listings.DomainEventEfClasses
 
         public int? LocationId { get; set; }
 
-        private Location _whereInstall;
         public Location WhereInstall
         {
             get => _whereInstall;

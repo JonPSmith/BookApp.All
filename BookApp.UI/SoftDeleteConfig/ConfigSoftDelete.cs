@@ -3,14 +3,12 @@
 
 using BookApp.Books.Domain.SupportTypes;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
 using SoftDeleteServices.Configuration;
 
 namespace BookApp.UI.SoftDeleteConfig
 {
     public class ConfigSoftDelete : SingleSoftDeleteConfiguration<ISoftDelete>
     {
-
         public ConfigSoftDelete(BookDbContext context)
             : base(context)
         {

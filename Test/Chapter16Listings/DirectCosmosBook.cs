@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2019 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using BookApp.Books.Domain;
@@ -9,11 +9,6 @@ namespace Test.Chapter16Listings
     public class DirectCosmosBook : CosmosBook
     {
         private DirectCosmosBook() : base() {}
-
-        public string Discriminator { get; set; } = "CosmosBook";
-
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
 
         public DirectCosmosBook(int bookId, Book book)
         {
@@ -29,6 +24,11 @@ namespace Test.Chapter16Listings
             OrgPrice = book.OrgPrice;
             ActualPrice = book.ActualPrice;
         }
+
+        public string Discriminator { get; set; } = "CosmosBook";
+
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
     }
 
 }

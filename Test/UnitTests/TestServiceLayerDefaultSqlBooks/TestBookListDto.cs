@@ -1,11 +1,11 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
+using BookApp.Books.Domain;
 using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
 using BookApp.Books.ServiceLayer.GoodLinq.QueryObjects;
-using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;
@@ -17,12 +17,12 @@ namespace Test.UnitTests.TestServiceLayerDefaultSqlBooks
 {
     public class TestBookListDto
     {
+        private readonly ITestOutputHelper _output;
+
         public TestBookListDto(ITestOutputHelper output)
         {
             _output = output;
         }
-
-        private readonly ITestOutputHelper _output;
 
 
         [Fact]
@@ -109,7 +109,7 @@ namespace Test.UnitTests.TestServiceLayerDefaultSqlBooks
             //ATTEMPT
             var firstBook = context.Books
                 .Include(r => r.AuthorsLink)
-                .ThenInclude(r => r.Author)
+                .ThenInclude<Book, BookAuthor, Author>(r => r.Author)
                 .Include(r => r.Reviews)
                 .First();
             var dto = new BookListDto

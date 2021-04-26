@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using BookApp.Books.Domain;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.EntityFrameworkCore;
 using TestSupport.EfHelpers;
 using Xunit;
@@ -23,12 +22,6 @@ namespace Test.UnitTests.Chapter17Tests
         {
             _output = output;
         }
-
-
-
-
-
-
 
 
         [Fact]
@@ -49,14 +42,6 @@ namespace Test.UnitTests.Chapter17Tests
             //VERIFY
             _output.WriteLine($"Book has {numReviews} reviews");
         }
-
-
-
-
-
-
-
-
 
 
         [Fact]
@@ -83,14 +68,6 @@ namespace Test.UnitTests.Chapter17Tests
         }
 
 
-
-
-
-
-
-
-
-
         [Fact]
         public void TestCreateBookAndReadBackWithChangeTrackerClearOk()
         {
@@ -109,13 +86,6 @@ namespace Test.UnitTests.Chapter17Tests
             //VERIFY
             _output.WriteLine($"Book has {numReviews?.ToString() ?? "null"} reviews");
         }
-
-
-
-
-
-
-
 
 
         [Fact]
@@ -139,9 +109,6 @@ namespace Test.UnitTests.Chapter17Tests
             //VERIFY
             _output.WriteLine($"Book has {numReviews} reviews");
         }
-
-
-
 
 
         [Fact]
@@ -168,12 +135,6 @@ namespace Test.UnitTests.Chapter17Tests
                 .OrderBy(x => x.BookId).Last()
                 .Reviews.Count.ShouldEqual(3);
         }
-
-
-
-
-
-
 
 
         private static int AddBookWithTwoReviewsToDatabase(BookDbContext context)

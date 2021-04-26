@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 [assembly: InternalsVisibleTo("Test")]
 
-namespace BookApp.Seeding.Infrastructure.Books
+namespace BookApp.Books.Infrastructure.Seeding
 {
     public class ManningBookLoad
     {
@@ -21,10 +21,10 @@ namespace BookApp.Seeding.Infrastructure.Books
 
         public const string PublisherString = "Manning publications";
         const string OriginalBooksTag = "Manning books";
+        private readonly string _detailSearchString;
 
         private readonly string _fileDir;
         private readonly string _summarySearchString;
-        private readonly string _detailSearchString;
 
         public ManningBookLoad(string fileDir, string summarySearchString, string detailSearchString)
         {

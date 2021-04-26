@@ -1,15 +1,10 @@
 ﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-using System.IO;
-using System.Linq;
 using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Orders.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.Persistence.EfCoreSql.Orders;
 using EfSchemaCompare;
 using Microsoft.EntityFrameworkCore;
-using TestSupport.EfHelpers;
 using TestSupport.Helpers;
 using Xunit;
 using Xunit.Extensions.AssertExtensions;

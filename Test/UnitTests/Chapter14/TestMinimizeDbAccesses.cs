@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2019 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -6,7 +6,6 @@ using System.Linq;
 using BookApp.Books.Domain;
 using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
-using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;
@@ -17,11 +16,11 @@ namespace Test.UnitTests.Chapter14
 {
     public class TestMinimizeDbAccesses
     {
+        private readonly int _firstBookId;
+        private readonly DbContextOptions<BookDbContext> _options;
         private readonly ITestOutputHelper _output;
 
         private bool showLogs;
-        private readonly DbContextOptions<BookDbContext> _options;
-        private readonly int _firstBookId;
 
         public TestMinimizeDbAccesses(ITestOutputHelper output)
         {
@@ -155,7 +154,6 @@ namespace Test.UnitTests.Chapter14
         }
 
 
-
         //--------------------------------------------------------
 
         private void RunManyTests(string testType, Action<BookDbContext, int> actionToRun, params int[] numRuns)
@@ -184,7 +182,7 @@ namespace Test.UnitTests.Chapter14
         {
             var book = context.Books
                 .Include(x => x.AuthorsLink)
-                .ThenInclude(x => x.Author)
+                .ThenInclude<Book, BookAuthor, Author>(x => x.Author)
                 .Include(x => x.Reviews)
                 .Include(x => x.Tags)
                 .Single(x => x.BookId == id);
@@ -195,7 +193,7 @@ namespace Test.UnitTests.Chapter14
             var book = context.Books
                 .AsSplitQuery()
                 .Include(x => x.AuthorsLink)
-                .ThenInclude(x => x.Author)
+                .ThenInclude<Book, BookAuthor, Author>(x => x.Author)
                 .Include(x => x.Reviews)
                 .Include(x => x.Tags)
                 .Single(x => x.BookId == id);

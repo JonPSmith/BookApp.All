@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using BookApp.Books.Domain;
 using BookApp.Books.Infrastructure.CachedValues.CheckFixCode;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.Extensions.Logging;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;
@@ -19,7 +18,6 @@ namespace Test.UnitTests.TestPersistenceSqlBooks
 {
     public class TestCheckFixCachedValues
     {
-
         [Fact]
         public async Task TestCheckFixCacheValuesServiceFindFixReviewsOk()
         {

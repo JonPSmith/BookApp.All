@@ -1,11 +1,11 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BookApp.Infrastructure.LoggingServices
+namespace BookApp.Main.Infrastructure.LoggingServices
 {
     public class TimingStats
     {
@@ -13,7 +13,7 @@ namespace BookApp.Infrastructure.LoggingServices
         {
             OverWhat = overWhat;
             var offset = Math.Max(0, timings.Count - numPointToConsider);
-            MinMillisecond = timings.Any() ? Double.MaxValue : 0.0;
+            MinMillisecond = timings.Any() ? double.MaxValue : 0.0;
             var count = 0;
             for (int i = offset; i < timings.Count; i++)
             {
@@ -34,6 +34,5 @@ namespace BookApp.Infrastructure.LoggingServices
         public double MaxMillisecond { get; }
         public double AverageMilliseconds { get; }
         public int NumPoints { get; }
-
     }
 }

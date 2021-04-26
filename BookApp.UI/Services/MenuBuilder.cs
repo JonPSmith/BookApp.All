@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
@@ -8,8 +8,6 @@ namespace BookApp.UI.Services
 {
     public class MenuBuilder : IMenuBuilder
     {
-        private readonly BookAppSettings _settings;
-
         private static readonly Dictionary<BookAppMenuSettings, List<MenuData>> PossibleMenus 
             = new Dictionary<BookAppMenuSettings, List<MenuData>>
         {
@@ -39,6 +37,8 @@ namespace BookApp.UI.Services
                 new MenuData("Orders", "Your Orders")
             }
         };
+
+        private readonly BookAppSettings _settings;
 
         public MenuBuilder(BookAppSettings settings)
         {

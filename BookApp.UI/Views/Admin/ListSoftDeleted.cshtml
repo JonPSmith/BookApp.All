@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BookApp.Books.ServiceLayer.GoodLinq.Dtos.SimpleBookList>
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@model IEnumerable<BookApp.Books.ServiceLayer.GoodLinq.Dtos.SimpleBookList>
 
 @{
     ViewData["Title"] = "ListSoftDeleted";
@@ -10,13 +11,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.BookId)
+                @HtmlHelperDisplayNameExtensions.DisplayNameFor(Html, model => model.BookId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                @HtmlHelperDisplayNameExtensions.DisplayNameFor(Html, model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastUpdatedUtc)
+                @HtmlHelperDisplayNameExtensions.DisplayNameFor(Html, model => model.LastUpdatedUtc)
             </th>
             <th></th>
         </tr>

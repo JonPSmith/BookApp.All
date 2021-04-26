@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using BookApp.Books.ServiceLayer.DisplayCommon;
 using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
 using BookApp.Books.ServiceLayer.GoodLinq;
-using BookApp.Infrastructure.LoggingServices;
+using BookApp.Main.Infrastructure.LoggingServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

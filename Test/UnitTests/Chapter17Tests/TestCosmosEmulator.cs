@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
@@ -9,7 +9,6 @@ using BookApp.Books.Persistence.CosmosDb;
 using Microsoft.EntityFrameworkCore;
 using TestSupport.Attributes;
 using TestSupport.EfHelpers;
-using Xunit;
 using Xunit.Abstractions;
 using Xunit.Extensions.AssertExtensions;
 
@@ -105,7 +104,5 @@ namespace Test.UnitTests.Chapter17Tests
             readBook.BookId.ShouldEqual(123);
             readBook.Tags.Select(x => x.TagId).ShouldEqual(new[] { "Tag1", "Tag2" });
         }
-
-
     }
 }

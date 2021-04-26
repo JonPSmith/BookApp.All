@@ -1,9 +1,9 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
+using BookApp.Books.Domain;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;
@@ -40,7 +40,7 @@ namespace Test.UnitTests.Chapter14
             {
                 var books = context.Books
                     .Include(x => x.Reviews)
-                    .Include(x => x.AuthorsLink).ThenInclude(x => x.Author)
+                    .Include(x => x.AuthorsLink).ThenInclude<Book, BookAuthor, Author>(x => x.Author)
                     .ToList();
             }
             using (var context = new BookDbContext(options))
@@ -49,7 +49,7 @@ namespace Test.UnitTests.Chapter14
                 var books = context.Books
                     .AsNoTracking()
                     .Include(x => x.Reviews)
-                    .Include(x => x.AuthorsLink).ThenInclude(x => x.Author)
+                    .Include(x => x.AuthorsLink).ThenInclude<Book, BookAuthor, Author>(x => x.Author)
                     .ToList();
             }
             using (var context = new BookDbContext(options))
@@ -58,7 +58,7 @@ namespace Test.UnitTests.Chapter14
                 var books = context.Books
                     .AsNoTrackingWithIdentityResolution()
                     .Include(x => x.Reviews)
-                    .Include(x => x.AuthorsLink).ThenInclude(x => x.Author)
+                    .Include(x => x.AuthorsLink).ThenInclude<Book, BookAuthor, Author>(x => x.Author)
                     .ToList();
             }
 
@@ -67,7 +67,7 @@ namespace Test.UnitTests.Chapter14
             {
                 var books = context.Books
                     .Include(x => x.Reviews)
-                    .Include(x => x.AuthorsLink).ThenInclude(x => x.Author)
+                    .Include(x => x.AuthorsLink).ThenInclude<Book, BookAuthor, Author>(x => x.Author)
                     .ToList();
             }
 
@@ -77,7 +77,7 @@ namespace Test.UnitTests.Chapter14
                 var books = context.Books
                     .AsNoTracking()
                     .Include(x => x.Reviews)
-                    .Include(x => x.AuthorsLink).ThenInclude(x => x.Author)
+                    .Include(x => x.AuthorsLink).ThenInclude<Book, BookAuthor, Author>(x => x.Author)
                     .ToList();
             }
 
@@ -87,7 +87,7 @@ namespace Test.UnitTests.Chapter14
                 var books = context.Books
                     .AsNoTrackingWithIdentityResolution()
                     .Include(x => x.Reviews)
-                    .Include(x => x.AuthorsLink).ThenInclude(x => x.Author)
+                    .Include(x => x.AuthorsLink).ThenInclude<Book, BookAuthor, Author>(x => x.Author)
                     .ToList();
             }
             options.ManualDispose();

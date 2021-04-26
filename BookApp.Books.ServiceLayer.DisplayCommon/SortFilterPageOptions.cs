@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -20,6 +20,17 @@ namespace BookApp.Books.ServiceLayer.DisplayCommon
         /// </summary>
         public int[] PageSizes = new[] {5, 10, 20, 50, 100, 500, 1000};
 
+
+        /// <summary>
+        ///     This is set to the number of pages available based on the number of entries in the query
+        /// </summary>
+        public int NumPages { get; private set; }
+
+        /// <summary>
+        ///     This holds the state of the key parts of the SortFilterPage parts
+        /// </summary>
+        public string PrevCheckState { get; set; }
+
         public OrderByOptions OrderByOptions { get; set; }
 
         public BooksFilterBy FilterBy { get; set; }
@@ -31,17 +42,6 @@ namespace BookApp.Books.ServiceLayer.DisplayCommon
         public int PageSize { get; set; } = DefaultPageSize;
 
         public bool NoCount { get; } = false;
-
-
-        /// <summary>
-        ///     This is set to the number of pages available based on the number of entries in the query
-        /// </summary>
-        public int NumPages { get; private set; }
-
-        /// <summary>
-        ///     This holds the state of the key parts of the SortFilterPage parts
-        /// </summary>
-        public string PrevCheckState { get; set; }
 
 
         public async Task SetupRestOfDtoAsync<T>(IQueryable<T> query)

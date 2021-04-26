@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2019 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -20,6 +20,41 @@ namespace Test.Chapter13Listings.EfClasses
         //ctors / static create factory
 
         private Book() { } //#A
+        /***********************************************************************************
+        #A Creating a private constructor means people can't create the entity via a constructor
+        #B The static CreateBook method returns a status with a valid Book (if there are no errors)
+        #C These all the parameters that are needed to create a valid book
+        #D This creates a status that can return a result - in this case a Book
+        #E This adds an error. Note it doesn't return immediately so that other errors can be added
+        #F Now you set the properties 
+        #G This sets up the Tags collection via the backing field
+        #H The authors parameter being null is considered a software error and throws an exception
+        #I This creates the BookAuthor class in the order that the Authors have been provided
+        #J If there are no Authors we add an error
+        #K This sets the status's Result to the new Book instance. But if there are errors it will be null
+         ************************************************************************/
+
+        //----------------------------------------
+        //properties
+
+        public int BookId { get; private set; }
+
+        [Required(AllowEmptyStrings = false)]
+        public string Title { get; private set; }
+
+        public DateTime PublishedOn { get; private set; }
+        public decimal OrgPrice { get; private set; }
+        public decimal ActualPrice { get; private set; }
+
+        [MaxLength(PromotionalTextLength)]
+        public string PromotionalText { get; private set; }
+
+
+        //---------------------------------------
+        //relationships
+
+        public IReadOnlyCollection<Review> Reviews => _reviews?.ToList();
+        public IReadOnlyCollection<BookAuthor> AuthorsLink => _authorsLink?.ToList();
 
         public static IStatusGeneric<Book> CreateBook(      //#B
         string title, DateTime publishedOn,       //#C
@@ -52,38 +87,6 @@ namespace Test.Chapter13Listings.EfClasses
 
             return status.SetResult(book); //#J
         }
-        /***********************************************************************************
-        #A Creating a private constructor means people can't create the entity via a constructor
-        #B The static CreateBook method returns a status with a valid Book (if there are no errors)
-        #C These all the parameters that are needed to create a valid book
-        #D This creates a status that can return a result - in this case a Book
-        #E This adds an error. Note it doesn't return immediately so that other errors can be added
-        #F Now you set the properties 
-        #G This sets up the Tags collection via the backing field
-        #H The authors parameter being null is considered a software error and throws an exception
-        #I This creates the BookAuthor class in the order that the Authors have been provided
-        #J If there are no Authors we add an error
-        #K This sets the status's Result to the new Book instance. But if there are errors it will be null
-         ************************************************************************/
-
-        //----------------------------------------
-        //properties
-
-        public int BookId { get; private set; }
-        [Required(AllowEmptyStrings = false)]
-        public string Title { get; private set; }
-        public DateTime PublishedOn { get; private set; }
-        public decimal OrgPrice { get; private set; }
-        public decimal ActualPrice { get; private set; }
-        [MaxLength(PromotionalTextLength)]
-        public string PromotionalText { get; private set; }
-
-
-        //---------------------------------------
-        //relationships
-
-        public IReadOnlyCollection<Review> Reviews => _reviews?.ToList();
-        public IReadOnlyCollection<BookAuthor> AuthorsLink => _authorsLink?.ToList();
 
         //-----------------------------------------------------
         //DDD access methods
@@ -215,8 +218,6 @@ namespace Test.Chapter13Listings.EfClasses
         #J If not linked to this Book, then throw an exception
         #K You delete the review
          ******************************************************************/
-
-
     }
 
 }

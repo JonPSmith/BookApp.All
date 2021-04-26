@@ -1,13 +1,12 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using BookApp.Books.Infrastructure.Seeding;
 using BookApp.Books.Persistence.CosmosDb;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.Seeding.Infrastructure.Books;
 using BookApp.UI.HelperExtensions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;

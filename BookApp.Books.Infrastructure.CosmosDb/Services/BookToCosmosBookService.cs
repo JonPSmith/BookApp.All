@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using BookApp.Books.Domain;
 using BookApp.Books.Persistence.CosmosDb;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Infrastructure.LoggingServices;
+using BookApp.Main.Infrastructure.LoggingServices;
 using Microsoft.Azure.Cosmos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -20,32 +20,10 @@ namespace BookApp.Books.Infrastructure.CosmosDb.Services
 {
     public class BookToCosmosBookService : IBookToCosmosBookService
     {
-        private class LogCosmosCommand : IDisposable
-        {
-            private readonly string _command;
-            private readonly ILogger _myLogger;
-            private readonly Stopwatch _stopwatch = new Stopwatch();
-
-            public LogCosmosCommand(string command, CosmosDbContext context)
-            {
-                _command = command;
-                _myLogger = context.GetService<ILoggerFactory>().CreateLogger(nameof(BookToCosmosBookService));
-                _stopwatch.Start();
-            }
-
-            public void Dispose()
-            {
-                _stopwatch.Stop();
-                _myLogger.LogInformation(new EventId(1, LogParts.CosmosEventName),
-                    $"Cosmos Query. Execute time = {_stopwatch.ElapsedMilliseconds} ms.\n" + _command);
-            }
-        }
-
-        private readonly BookDbContext _sqlContext;
         private readonly CosmosDbContext _cosmosContext;
         private readonly ILogger _myLogger;
 
-        private bool CosmosNotConfigured => _cosmosContext == null;
+        private readonly BookDbContext _sqlContext;
 
         public BookToCosmosBookService(BookDbContext sqlContext, CosmosDbContext cosmosContext)
         {
@@ -53,6 +31,8 @@ namespace BookApp.Books.Infrastructure.CosmosDb.Services
             _cosmosContext = cosmosContext;
             _myLogger = _cosmosContext?.GetService<ILoggerFactory>().CreateLogger(nameof(BookToCosmosBookService));
         }
+
+        private bool CosmosNotConfigured => _cosmosContext == null;
 
         public async Task AddCosmosBookAsync(int bookId) 
         {
@@ -119,8 +99,6 @@ namespace BookApp.Books.Infrastructure.CosmosDb.Services
             }
             await _cosmosContext.SaveChangesAsync();
         }
-
-        private enum WhatDoing {Adding, Updating, Deleting}
 
         private async Task CosmosSaveChangesWithChecksAsync //#A
             (WhatDoing whatDoing, int bookId)  //#B
@@ -214,6 +192,27 @@ namespace BookApp.Books.Infrastructure.CosmosDb.Services
                 .ToListAsync();
         }
 
+        private class LogCosmosCommand : IDisposable
+        {
+            private readonly string _command;
+            private readonly ILogger _myLogger;
+            private readonly Stopwatch _stopwatch = new Stopwatch();
 
+            public LogCosmosCommand(string command, CosmosDbContext context)
+            {
+                _command = command;
+                _myLogger = context.GetService<ILoggerFactory>().CreateLogger(nameof(BookToCosmosBookService));
+                _stopwatch.Start();
+            }
+
+            public void Dispose()
+            {
+                _stopwatch.Stop();
+                _myLogger.LogInformation(new EventId(1, LogParts.CosmosEventName),
+                    $"Cosmos Query. Execute time = {_stopwatch.ElapsedMilliseconds} ms.\n" + _command);
+            }
+        }
+
+        private enum WhatDoing {Adding, Updating, Deleting}
     }
 }

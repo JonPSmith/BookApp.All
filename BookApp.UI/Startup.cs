@@ -1,16 +1,15 @@
-// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-using System;
 using System.Reflection;
 using System.Text.Json.Serialization;
-using AutoMapper.Configuration.Annotations;
 using BookApp.BackgroundTasks;
 using BookApp.Books.Infrastructure.CachedValues;
 using BookApp.Books.Infrastructure.CachedValues.ConcurrencyHandlers;
 using BookApp.Books.Infrastructure.CachedValues.EventHandlers;
 using BookApp.Books.Infrastructure.CosmosDb;
 using BookApp.Books.Infrastructure.CosmosDb.EventsHandlers;
+using BookApp.Books.Infrastructure.Seeding;
 using BookApp.Books.Persistence.CosmosDb;
 using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Books.ServiceLayer.CachedSql;
@@ -24,12 +23,8 @@ using BookApp.Orders.BizLogic.Orders;
 using BookApp.Orders.Persistence.DbAccess;
 using BookApp.Orders.Persistence.EfCoreSql;
 using BookApp.Orders.ServiceLayer.EfCoreSql.OrderServices;
-using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.Persistence.EfCoreSql.Orders;
-using BookApp.Seeding.Infrastructure.Books;
 using BookApp.UI.HelperExtensions;
 using BookApp.UI.Logger;
-using BookApp.UI.Models;
 using BookApp.UI.Services;
 using GenericEventRunner.ForSetup;
 using GenericServices.Setup;
@@ -41,7 +36,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using NetCore.AutoRegisterDi;
 using SoftDeleteServices.Configuration;
 

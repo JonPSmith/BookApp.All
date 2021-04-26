@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -11,11 +11,12 @@ namespace Test.Chapter12Listings.EventRunnerCode
     public class EventRunner : IEventRunner                          //#A
     {
         private readonly IServiceProvider _serviceProvider;          //#B
-                                                                     //#B
+
+        //#B
         public EventRunner(IServiceProvider serviceProvider)         //#B
         {                                                            //#B
             _serviceProvider = serviceProvider;                      //#B
-        }                                                            //#B
+        } //#B
 
         public void RunEvents(DbContext context)
         {

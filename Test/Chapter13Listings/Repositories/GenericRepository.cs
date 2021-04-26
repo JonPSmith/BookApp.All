@@ -1,6 +1,5 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
-
 
 using System;
 using System.Linq;
@@ -22,7 +21,7 @@ namespace Test.Chapter13Listings.Repositories
         public IQueryable<TEntity> GetEntities() //#C
         {                                        //#C
             return Context.Set<TEntity>();       //#C  
-        }                                        //#C
+        } //#C
 
         public async Task<TEntity> FindEntityAsync(int id)  //#D
         {
@@ -37,7 +36,7 @@ namespace Test.Chapter13Listings.Repositories
         public Task PersistDataAsync()        //#H
         {                                     //#H
             return Context.SaveChangesAsync();//#H
-        }                                     //#H
+        } //#H
     }
     /**************************************************************
     #A The generic repository will work with any entity class

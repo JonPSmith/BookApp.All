@@ -1,15 +1,12 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-using System.Linq;
 using System.Threading.Tasks;
 using BookApp.Orders.BizLogic.BasketServices;
 using BookApp.Orders.BizLogic.Orders;
 using BookApp.Orders.Persistence.EfCoreSql;
 using BookApp.Orders.ServiceLayer.EfCoreSql.CheckoutServices.Concrete;
 using BookApp.Orders.ServiceLayer.EfCoreSql.OrderServices.Concrete;
-using BookApp.Persistence.EfCoreSql.Orders;
-using BookApp.UI.Controllers;
 using GenericServices.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 

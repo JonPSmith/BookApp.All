@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -16,15 +16,15 @@ namespace BookApp.Orders.BizLogic.BasketServices
         public CheckoutCookieService(string cookieContent) 
         {                                                  
             DecodeCookieString(cookieContent);             
-        } 
+        }
 
-        public Guid UserId { get; private set; } 
-        public ImmutableList<OrderLineItem> LineItems => _lineItems.ToImmutableList(); 
+        public Guid UserId { get; private set; }
+        public ImmutableList<OrderLineItem> LineItems => _lineItems.ToImmutableList();
 
         public void AddLineItem(OrderLineItem newItem) 
         {                                              
             _lineItems.Add(newItem);                   
-        } 
+        }
 
         public void DeleteLineItem(int itemIndex)                        
         {                                                                
@@ -32,12 +32,12 @@ namespace BookApp.Orders.BizLogic.BasketServices
                 throw new                                                
                     InvalidOperationException("Couldn't find that item"); 
             _lineItems.RemoveAt(itemIndex);                              
-        } 
+        }
 
         public void ClearAllLineItems()  
         {                                
             _lineItems.Clear();          
-        } 
+        }
 
         public string EncodeForCookie()                  
         {                                                

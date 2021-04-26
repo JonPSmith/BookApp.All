@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ namespace Test.Chapter12Listings.EventInterfacesEtc
         public void AddEvent(IDomainEvent domainEvent)  //#C
         {                                               //#C
             _domainEvents.Add(domainEvent);             //#C
-        }                                               //#C
+        } //#C
 
         public ICollection<IDomainEvent>                //#D
             GetEventsThenClear()                        //#D
@@ -22,7 +22,7 @@ namespace Test.Chapter12Listings.EventInterfacesEtc
             var eventsCopy = _domainEvents.ToList();    //#D
             _domainEvents.Clear();                      //#D
             return eventsCopy;                          //#D
-        }                                               //#D
+        } //#D
     }
     /************************************************************
     #A The IEntityEvents defines the GetEventsThenClear method for the Event Runner

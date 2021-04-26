@@ -1,14 +1,12 @@
 ﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using BookApp.Books.Domain;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
 using TestSupport.Attributes;
@@ -21,13 +19,6 @@ namespace Test.UnitTests.Chapter14
 {
     public class Ch12_CompiledQueryPerformance
     {
-        private readonly ITestOutputHelper _output;
-
-        public Ch12_CompiledQueryPerformance(ITestOutputHelper output)
-        {
-            _output = output;
-        }
-
         private static Func<BookDbContext, int, Book> _compiledQueryComplex =
             EF.CompileQuery((BookDbContext context, int i) =>
                 context.Books
@@ -38,6 +29,26 @@ namespace Test.UnitTests.Chapter14
                     .OrderBy(x => x.PublishedOn)
                     .Skip(i)
                     .FirstOrDefault());
+
+        private static Func<BookDbContext, int, Book> //#A
+            _compliedQuerySimple =                    //#A
+            EF.CompileQuery( //#B
+                (BookDbContext context, int i) => //#B
+                context.Books//#D
+                    .Skip(i) //#D
+                    .First() //#D
+                );
+
+        private static Func<BookDbContext, IEnumerable<Book>> _compliedQueryEnumerable =
+            EF.CompileQuery((BookDbContext context) =>
+                context.Books);
+
+        private readonly ITestOutputHelper _output;
+
+        public Ch12_CompiledQueryPerformance(ITestOutputHelper output)
+        {
+            _output = output;
+        }
 
         private void RunNonCompiledQueryComplex(BookDbContext context, int i)
         {
@@ -50,15 +61,6 @@ namespace Test.UnitTests.Chapter14
                 .Skip(i)
                 .FirstOrDefault();
         }
-
-        private static Func<BookDbContext, int, Book> //#A
-            _compliedQuerySimple =                    //#A
-            EF.CompileQuery( //#B
-                (BookDbContext context, int i) => //#B
-                context.Books//#D
-                    .Skip(i) //#D
-                    .First() //#D
-                );
         /*************************************************
         #A You need to define a static function to hold your complied query. In this case I take in the application's DbContext, an int parameter, and the return type
         #B The EF.CompileQuery expects: a) a DbContext, b) one or two parameters for you to use in your query, c) the returned result, either a entity class or IEnumerable<TEntity>
@@ -70,10 +72,6 @@ namespace Test.UnitTests.Chapter14
             var book = context.Books.Skip(i)
                 .First();
         }
-
-        private static Func<BookDbContext, IEnumerable<Book>> _compliedQueryEnumerable =
-            EF.CompileQuery((BookDbContext context) =>
-                context.Books);
 
         [RunnableInDebugOnly]
         public void QueryNonCompiledComplex()
@@ -182,6 +180,5 @@ namespace Test.UnitTests.Chapter14
                 timer.ElapsedMilliseconds,
                 timer.ElapsedMilliseconds / ((double)numCyclesToRun));
         }
-
     }
 }

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -41,7 +41,7 @@ namespace BookApp.Common.Persistence
             Expression<Func<TEntity, bool>> filter =                  //#I
                 x => x.UserId == userIdProvider.UserId;               //#I
             return filter;                                            //#I
-        }                                                             //#I
+        } //#I
 
         private static LambdaExpression GetSoftDeleteFilter<TEntity>( //#J
             IUserId userIdProvider)                                   //#J

@@ -1,11 +1,10 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.IO;
 using System.Linq;
+using BookApp.Books.Infrastructure.Seeding;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.Seeding.Infrastructure.Books;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;
 using TestSupport.Helpers;
@@ -101,7 +100,5 @@ namespace Test.UnitTests.TestInfrastructureBookSeeding
             context.Tags.Count().ShouldEqual(5);
 
         }
-
-
     }
 }

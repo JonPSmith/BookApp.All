@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
@@ -13,6 +13,7 @@ namespace Test.Chapter12Listings.EventHandlers
         : IEventHandler<LocationChangedEvent>            //#B
     {
         private readonly DomainEventsDbContext _context;       //#C
+
         private readonly                                 //#C
             ICalcSalesTaxService _taxLookupService;      //#C
 
@@ -22,7 +23,7 @@ namespace Test.Chapter12Listings.EventHandlers
         {                                                //#D
             _context = context;                          //#D
             _taxLookupService = taxLookupService;        //#D
-        }                                                //#D
+        } //#D
 
         public void HandleEvent
             (LocationChangedEvent domainEvent) //#E

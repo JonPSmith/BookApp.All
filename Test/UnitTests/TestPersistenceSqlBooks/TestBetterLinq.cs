@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -9,7 +9,6 @@ using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Books.ServiceLayer.DisplayCommon;
 using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
 using BookApp.Books.ServiceLayer.GoodLinq.Services;
-using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;
@@ -20,11 +19,11 @@ namespace Test.UnitTests.TestPersistenceSqlBooks
 {
     public class TestBetterLinq
     {
+        private readonly DbContextOptions<BookDbContext> _options;
         private ITestOutputHelper _output;
+        private SortFilterPageOptions _sfpOptions;
 
         private bool showLogs;
-        private readonly DbContextOptions<BookDbContext> _options;
-        private SortFilterPageOptions _sfpOptions;
 
         public TestBetterLinq(ITestOutputHelper output)
         {
@@ -170,7 +169,7 @@ namespace Test.UnitTests.TestPersistenceSqlBooks
             var books = context.Books
                 .AsNoTracking()
                 .AsSplitQuery()
-                .Include(b => b.AuthorsLink).ThenInclude(x => x.Author)
+                .Include(b => b.AuthorsLink).ThenInclude<Book, BookAuthor, Author>(x => x.Author)
                 .Include(b => b.Reviews)
                 .Include(b => b.Tags)
                 .OrderBy(x => x.ReviewsAverageVotes)
@@ -243,6 +242,5 @@ namespace Test.UnitTests.TestPersistenceSqlBooks
                 }
             }
         }
-
     }
 }

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Threading.Tasks;
@@ -9,7 +9,7 @@ namespace Test.Chapter12Listings.EventRunnerCode
     internal abstract class EventHandlerRunnerAsync               //#A        
     {
         public abstract Task HandleEventAsync                   //#A
-            (IDomainEvent domainEvent);                      //#A
+            (IDomainEvent domainEvent); //#A
     }
 
     internal class EventHandlerRunnerAsync<T> : EventHandlerRunnerAsync //#B
@@ -20,13 +20,13 @@ namespace Test.Chapter12Listings.EventRunnerCode
         public EventHandlerRunnerAsync(IEventHandlerAsync<T> handler)   //#C
         {                                                     //#C
             _handler = handler;                               //#C
-        }                                                     //#C
+        } //#C
 
         public override Task HandleEventAsync                      //#D
             (IDomainEvent domainEvent)                        //#D
         {                                                     //#D
             return _handler.HandleEventAsync((T)domainEvent);             //#D
-        }                                                     //#D
+        } //#D
     }
     /****************************************************
     #A By defining a non-generic method you can run the generic event handler

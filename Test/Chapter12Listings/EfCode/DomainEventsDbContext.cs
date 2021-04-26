@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using Microsoft.EntityFrameworkCore;
@@ -33,13 +33,13 @@ namespace Test.Chapter12Listings.EfCode
 
         //You should also override SaveChangesAsync
 
-    /***********************************************************************
-    #A This holds the Event Runner that is injected by DI via the class's constructor
-    #B The constructor now has a second parameter DI fills in with the Event Runner
-    #C You override SaveChanges so that you can run the Event Runner before the real SaveChanges
-    #D You run the Event Runner
-    #E You then run the base.SaveChanges
-     *************************************************************/
+        /***********************************************************************
+        #A This holds the Event Runner that is injected by DI via the class's constructor
+        #B The constructor now has a second parameter DI fills in with the Event Runner
+        #C You override SaveChanges so that you can run the Event Runner before the real SaveChanges
+        #D You run the Event Runner
+        #E You then run the base.SaveChanges
+         *************************************************************/
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SalesTaxInfo>().HasData(

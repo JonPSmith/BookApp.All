@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -6,7 +6,6 @@ using System.Linq;
 using BookApp.Books.Infrastructure.CachedValues.ConcurrencyHandlers;
 using BookApp.Books.Infrastructure.CachedValues.EventHandlers;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
 using GenericEventRunner.ForSetup;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
@@ -18,7 +17,6 @@ namespace Test.UnitTests.TestPersistenceSqlBooks
 {
     public class TestBookDbContextConcurrencyIssues
     {
-        
         [Fact]
         public void TestBookDbContextAddReviewConcurrencyOk()
         {

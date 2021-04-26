@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2019 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
@@ -12,14 +12,14 @@ namespace BookApp.Books.Domain
 {
     public class Author : EventsAndCreatedUpdated  //#A
     {
-        private string _name;   //#B
         private HashSet<BookAuthor> _booksLink;
+        private string _name;   //#B
 
         public Author(string name, string email)
         {                                       
             _name = name;                       
             Email = email;                      
-        }                                       
+        }
 
         public int AuthorId { get;  private set; }
 

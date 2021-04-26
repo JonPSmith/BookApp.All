@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -26,6 +26,7 @@ namespace BookApp.Books.ServiceLayer.GoodLinq.Dtos
 
         [DataType(DataType.Date)]
         public DateTime PublishedOn { get; set; }
+
         public bool EstimatedDate { get; set; }
         public string Publisher { get; set; }
 

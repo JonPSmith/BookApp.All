@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2019 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -15,66 +15,19 @@ namespace BookApp.Books.Domain
     public class Book : EventsAndCreatedUpdated, ISoftDelete
     {
         public const int PromotionalTextLength = 200;
+        private HashSet<BookAuthor> _authorsLink;
 
         //-----------------------------------------------
         //relationships backing fields
 
         //Use uninitialized backing fields - this means we can detect if the collection was loaded
         private HashSet<Review> _reviews;
-        private HashSet<BookAuthor> _authorsLink;
         private HashSet<Tag> _tags;
 
         //-----------------------------------------------
         //ctors/static factory
 
-        private Book() { }   //Needed by EF Core
-
-        public static IStatusGeneric<Book> CreateBook(      
-            string title, DateTime publishedOn,              
-            bool estimatedDate,                              
-            string publisher, decimal price, string imageUrl,
-            ICollection<Author> authors,                     
-            ICollection<Tag> tags = null)                    
-        {
-            var status = new StatusGenericHandler<Book>();  
-            if (string.IsNullOrWhiteSpace(title))         
-                status.AddError(                          
-                    "The book title cannot be empty.");   
-
-            var book = new Book                         
-            {                                           
-                Title = title,                          
-                PublishedOn = publishedOn,              
-                EstimatedDate = estimatedDate,          
-                Publisher = publisher,
-                OrgPrice = price,
-                ActualPrice = price,
-                ImageUrl = imageUrl,
-                //We need to initialise the AuthorsOrdered string when the entry is created
-                //NOTE: We must NOT initialise the ReviewsCount and the ReviewsAverageVotes as they default to zero
-                AuthorsOrdered = string.Join(", ", authors.Select(x => x.Name)),
-
-                _tags = tags != null           
-                    ? new HashSet<Tag>(tags)   
-                    : new HashSet<Tag>(),      
-                _reviews = new HashSet<Review>()       //We add an empty list on create. I allows reviews to be added when building test data
-            };
-            if (authors == null)                                   
-                throw new ArgumentNullException(nameof(authors));  
-
-            byte order = 0;                               
-            book._authorsLink = new HashSet<BookAuthor>(  
-                authors.Select(a =>                       
-                    new BookAuthor(book, a, order++)));   
-            if (!book._authorsLink.Any())                             
-                status.AddError(                                      
-                    "You must have at least one Author for a book."); 
-            
-            if (status.IsValid)
-                book.AddEvent(new BookChangedEvent(BookChangeTypes.Added), EventToSend.DuringSave);
-
-            return status.SetResult(book); 
-        }
+        private Book() { } //Needed by EF Core
 
         /// <summary>
         /// This static factory is used by the BookGenerator when filling the database with test data
@@ -152,11 +105,6 @@ namespace BookApp.Books.Domain
         /// </summary>
         public string ManningBookUrl { get; private set; }
 
-        //---------------------------------------------
-        //Soft delete
-
-        public bool SoftDeleted { get; private set; }
-
         //---------------------------------------
         //relationships
 
@@ -175,16 +123,82 @@ namespace BookApp.Books.Domain
         [ConcurrencyCheck]
         public string AuthorsOrdered { get; private set; }
 
-        public void ResetAuthorsOrdered(string authorOrdered)
-        {
-            AuthorsOrdered = authorOrdered;
-        }
-
         [ConcurrencyCheck]
         public int ReviewsCount { get; private set; }
 
         [ConcurrencyCheck]
         public double ReviewsAverageVotes { get; private set; }
+
+        //---------------------------------------------
+        //Soft delete
+
+        public bool SoftDeleted { get; private set; }
+
+        public void AlterSoftDelete(bool softDeleted)
+        {
+            if (SoftDeleted != softDeleted)
+            {
+                var eventType = softDeleted
+                    ? BookChangeTypes.Deleted
+                    : BookChangeTypes.Added;
+
+                AddEvent(new BookChangedEvent(eventType)
+                    , EventToSend.DuringSave);
+            }
+            SoftDeleted = softDeleted;
+        }
+
+        public static IStatusGeneric<Book> CreateBook(      
+            string title, DateTime publishedOn,              
+            bool estimatedDate,                              
+            string publisher, decimal price, string imageUrl,
+            ICollection<Author> authors,                     
+            ICollection<Tag> tags = null)                    
+        {
+            var status = new StatusGenericHandler<Book>();  
+            if (string.IsNullOrWhiteSpace(title))         
+                status.AddError(                          
+                    "The book title cannot be empty.");   
+
+            var book = new Book                         
+            {                                           
+                Title = title,                          
+                PublishedOn = publishedOn,              
+                EstimatedDate = estimatedDate,          
+                Publisher = publisher,
+                OrgPrice = price,
+                ActualPrice = price,
+                ImageUrl = imageUrl,
+                //We need to initialise the AuthorsOrdered string when the entry is created
+                //NOTE: We must NOT initialise the ReviewsCount and the ReviewsAverageVotes as they default to zero
+                AuthorsOrdered = string.Join(", ", authors.Select(x => x.Name)),
+
+                _tags = tags != null           
+                    ? new HashSet<Tag>(tags)   
+                    : new HashSet<Tag>(),      
+                _reviews = new HashSet<Review>()       //We add an empty list on create. I allows reviews to be added when building test data
+            };
+            if (authors == null)                                   
+                throw new ArgumentNullException(nameof(authors));  
+
+            byte order = 0;                               
+            book._authorsLink = new HashSet<BookAuthor>(  
+                authors.Select(a =>                       
+                    new BookAuthor(book, a, order++)));   
+            if (!book._authorsLink.Any())                             
+                status.AddError(                                      
+                    "You must have at least one Author for a book."); 
+            
+            if (status.IsValid)
+                book.AddEvent(new BookChangedEvent(BookChangeTypes.Added), EventToSend.DuringSave);
+
+            return status.SetResult(book); 
+        }
+
+        public void ResetAuthorsOrdered(string authorOrdered)
+        {
+            AuthorsOrdered = authorOrdered;
+        }
 
         public void UpdateReviewCachedValues
             (int reviewsCount, double reviewsAverageVotes)
@@ -226,20 +240,6 @@ namespace BookApp.Books.Domain
         {
             ManningBookUrl = manningBookUrl;
             AddEvent(new BookChangedEvent(BookChangeTypes.Updated), EventToSend.DuringSave);
-        }
-
-        public void AlterSoftDelete(bool softDeleted)
-        {
-            if (SoftDeleted != softDeleted)
-            {
-                var eventType = softDeleted
-                    ? BookChangeTypes.Deleted
-                    : BookChangeTypes.Added;
-
-                AddEvent(new BookChangedEvent(eventType)
-                    , EventToSend.DuringSave);
-            }
-            SoftDeleted = softDeleted;
         }
 
         public void UpdatePublishedOn(DateTime publishedOn)

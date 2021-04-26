@@ -1,20 +1,17 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Diagnostics;
 using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Main.Infrastructure;
-using BookApp.Persistence.EfCoreSql.Books;
 using BookApp.UI.HelperExtensions;
 using BookApp.UI.Models;
 using Microsoft.AspNetCore.Mvc;
-
 
 namespace BookApp.UI.Controllers
 {
     public class HomeController : BaseTraceController
     {
-
         public IActionResult Index([FromServices]BookAppSettings settings)
         {
             return View(null, settings.Title);

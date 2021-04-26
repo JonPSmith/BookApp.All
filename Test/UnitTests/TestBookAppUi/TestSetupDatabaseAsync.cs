@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -12,8 +12,6 @@ using BookApp.Books.Infrastructure.CosmosDb.Services;
 using BookApp.Books.Persistence.CosmosDb;
 using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Orders.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.Persistence.EfCoreSql.Orders;
 using BookApp.UI.HelperExtensions;
 using GenericEventRunner.ForSetup;
 using Microsoft.AspNetCore.Hosting;
@@ -21,7 +19,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Test.TestHelpers;
-using TestSupport.Attributes;
 using TestSupport.EfHelpers;
 using TestSupport.Helpers;
 using Xunit;
@@ -31,38 +28,6 @@ namespace Test.UnitTests.TestBookAppUi
 {
     public class TestSetupDatabaseAsync
     {
-
-        private class MyHost : IHost
-        {
-            public void Dispose()
-            {
-                throw new NotImplementedException();
-            }
-
-            public Task StartAsync(CancellationToken cancellationToken = new CancellationToken())
-            {
-                throw new NotImplementedException();
-            }
-
-            public Task StopAsync(CancellationToken cancellationToken = new CancellationToken())
-            {
-                throw new NotImplementedException();
-            }
-
-            public IServiceProvider Services { get; set; }
-        }
-
-        private class MyWebHostEnvironment : IWebHostEnvironment
-        {
-            public string ApplicationName { get; set; }
-            public IFileProvider ContentRootFileProvider { get; set; }
-            public string ContentRootPath { get; set; }
-            public string EnvironmentName { get; set; }
-            public string WebRootPath { get; set; }
-            public IFileProvider WebRootFileProvider { get; set; }
-        }
-
-
         [Fact]
         public async Task TestSetupDatabaseAsyncOnlyOneUpdateOfCosmosOk()
         {
@@ -105,6 +70,36 @@ namespace Test.UnitTests.TestBookAppUi
                 bookContext.Books.Count().ShouldEqual(6);
             }
 
+        }
+
+        private class MyHost : IHost
+        {
+            public void Dispose()
+            {
+                throw new NotImplementedException();
+            }
+
+            public Task StartAsync(CancellationToken cancellationToken = new CancellationToken())
+            {
+                throw new NotImplementedException();
+            }
+
+            public Task StopAsync(CancellationToken cancellationToken = new CancellationToken())
+            {
+                throw new NotImplementedException();
+            }
+
+            public IServiceProvider Services { get; set; }
+        }
+
+        private class MyWebHostEnvironment : IWebHostEnvironment
+        {
+            public string ApplicationName { get; set; }
+            public IFileProvider ContentRootFileProvider { get; set; }
+            public string ContentRootPath { get; set; }
+            public string EnvironmentName { get; set; }
+            public string WebRootPath { get; set; }
+            public IFileProvider WebRootFileProvider { get; set; }
         }
     }
 }

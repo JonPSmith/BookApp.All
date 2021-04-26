@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2019 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using BookApp.Books.ServiceLayer.CosmosEf;
 using BookApp.Books.ServiceLayer.DisplayCommon;
 using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
-using BookApp.Infrastructure.LoggingServices;
+using BookApp.Main.Infrastructure.LoggingServices;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookApp.UI.Controllers
@@ -36,6 +36,5 @@ namespace BookApp.UI.Controllers
                 new TraceIndentGeneric<IEnumerable<DropdownTuple>>(
                 traceIdent, dropdown));            
         }
-
     }
 }

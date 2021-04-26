@@ -1,9 +1,8 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using BookApp.Main.Infrastructure;
 using BookApp.UI.HelperExtensions;
-using BookApp.UI.Models;
 using BookApp.UI.Services;
 using TestSupport.Helpers;
 using Xunit;
@@ -102,6 +101,5 @@ namespace Test.UnitTests.TestBookAppUi
             cosmosSettings.ConnectionString.ShouldStartWith("AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/");
             cosmosSettings?.DatabaseName.ShouldEqual("BookAppCosmos4");
         }
-
     }
 }

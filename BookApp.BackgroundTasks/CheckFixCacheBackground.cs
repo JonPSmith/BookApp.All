@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -8,17 +8,16 @@ using BookApp.Books.Infrastructure.CachedValues;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace BookApp.BackgroundTasks
 {
     public class CheckFixCacheBackground : BackgroundService
     {
-        private CancellationToken _stopCancellationToken = new CancellationToken();
+        private readonly ILogger<CheckFixCacheBackground> _logger;
         private readonly NightlyTimer _nightlyTimer = new NightlyTimer();
 
         private readonly IServiceProvider _services;
-        private readonly ILogger<CheckFixCacheBackground> _logger;
+        private CancellationToken _stopCancellationToken = new CancellationToken();
 
 
         public CheckFixCacheBackground(
@@ -63,6 +62,5 @@ namespace BookApp.BackgroundTasks
 
             return Task.CompletedTask;
         }
-
     }
 }

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -11,11 +11,9 @@ using BookApp.Books.Infrastructure.CachedValues;
 using BookApp.Books.Infrastructure.CachedValues.CheckFixCode;
 using BookApp.Books.Persistence.EfCoreSql;
 using BookApp.Books.ServiceLayer.GoodLinq.Dtos;
-using BookApp.Infrastructure.LoggingServices;
 using BookApp.Main.Infrastructure;
-using BookApp.Persistence.EfCoreSql.Books;
+using BookApp.Main.Infrastructure.LoggingServices;
 using BookApp.UI.HelperExtensions;
-using BookApp.UI.Models;
 using GenericServices;
 using GenericServices.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
@@ -27,18 +25,6 @@ namespace BookApp.UI.Controllers
     public class AdminController : BaseTraceController
     {
         private readonly string _backToDisplayController;
-
-        public class BookUpdatedDto
-        {
-            public BookUpdatedDto(string message, string controllerName)
-            {
-                Message = message;
-                ControllerName = controllerName;
-            }
-
-            public string Message { get; }
-            public string ControllerName { get; } 
-        }
 
         public AdminController(BookAppSettings settings)
         {
@@ -228,5 +214,16 @@ namespace BookApp.UI.Controllers
             return View(timingLogs);
         }
 
+        public class BookUpdatedDto
+        {
+            public BookUpdatedDto(string message, string controllerName)
+            {
+                Message = message;
+                ControllerName = controllerName;
+            }
+
+            public string Message { get; }
+            public string ControllerName { get; }
+        }
     }
 }

@@ -1,11 +1,10 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Test.TestHelpers;
@@ -23,7 +22,7 @@ namespace Test.UnitTests.Chapter17Tests
         public TestLogTo(ITestOutputHelper output)//#C
         {                                         //#C
             _output = output;                     //#C
-        }                                         //#C
+        } //#C
 
         [Fact]
         public void TestLogToDemoToConsole()  //#D
@@ -142,10 +141,5 @@ namespace Test.UnitTests.Chapter17Tests
 
             //VERIFY
         }
-
-
-
-
-
     }
 }

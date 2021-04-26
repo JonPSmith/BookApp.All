@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -8,10 +8,10 @@ namespace BookApp.Orders.ServiceLayer.EfCoreSql.CheckoutServices.Concrete
 {
     public abstract class CookieTemplate
     {
+        private readonly string _cookieName;
 
         private readonly IRequestCookieCollection _cookiesIn;
-        private readonly IResponseCookies _cookiesOut;  
-        private readonly string _cookieName;
+        private readonly IResponseCookies _cookiesOut;
 
         protected CookieTemplate(string cookieName, IRequestCookieCollection cookiesIn, IResponseCookies cookiesOut = null)
         {
@@ -67,7 +67,5 @@ namespace BookApp.Orders.ServiceLayer.EfCoreSql.CheckoutServices.Concrete
             var options = new CookieOptions {Expires = DateTime.Now.AddYears(-1)};
             _cookiesOut.Append(_cookieName, "", options);
         }
-
-
     }
 }

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -10,7 +10,6 @@ using BookApp.Orders.BizLogic.Orders;
 using BookApp.Orders.BizLogic.Orders.Concrete;
 using BookApp.Orders.Persistence.DbAccess.Orders;
 using BookApp.Orders.Persistence.EfCoreSql;
-using BookApp.Persistence.EfCoreSql.Orders;
 using Microsoft.EntityFrameworkCore;
 using Test.Mocks;
 using Test.TestHelpers;
