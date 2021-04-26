@@ -10,8 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookApp.Infrastructure.LoggingServices\BookApp.Infrastructure.LoggingServices.csproj" />
-    <ProjectReference Include="..\BookApp.ServiceLayer.DisplayCommon.Books\BookApp.ServiceLayer.DisplayCommon.Books.csproj" />
     <ProjectReference Include="..\BookApp.Books.Persistence.EfCoreSql\BookApp.Books.Persistence.EfCoreSql.csproj" />
+    <ProjectReference Include="..\BookApp.Books.ServiceLayer.DisplayCommon\BookApp.Books.ServiceLayer.DisplayCommon.csproj" />
   </ItemGroup>
 
 </Project>
