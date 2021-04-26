@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookApp.Infrastructure.Book.CachedValues\BookApp.Infrastructure.Books.CachedValues.csproj" />
+    <ProjectReference Include="..\BookApp.Books.Infrastructure.CachedValues\BookApp.Books.Infrastructure.CachedValues.csproj" />
   </ItemGroup>
 
 </Project>
