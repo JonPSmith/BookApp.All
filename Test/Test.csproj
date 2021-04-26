@@ -35,7 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookApp.UI\BookApp.UI.csproj" />
     <ProjectReference Include="..\BookApp.Orders.BizLogic\BookApp.Orders.BizLogic.csproj" />
     <ProjectReference Include="..\BookApp.Books.Domain\BookApp.Books.Domain.csproj" />
     <ProjectReference Include="..\BookApp.Orders.Domain\BookApp.Orders.Domain.csproj" />
@@ -49,6 +48,7 @@
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.GoodLinq\BookApp.Books.ServiceLayer.GoodLinq.csproj" />
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.UdfsSql\BookApp.Books.ServiceLayer.UdfsSql.csproj" />
     <ProjectReference Include="..\BookApp.Books.Infrastructure.Seeding\BookApp.Books.Infrastructure.Seeding.csproj" />
+    <ProjectReference Include="..\BookApp.Main.FrontEnd\BookApp.Main.FrontEnd.csproj" />
   </ItemGroup>
 
 </Project>
