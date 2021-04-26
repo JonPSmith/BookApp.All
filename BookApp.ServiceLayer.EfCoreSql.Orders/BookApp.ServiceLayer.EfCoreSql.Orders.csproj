@@ -11,7 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BookApp.Domain.Orders\BookApp.Domain.Orders.csproj" />
     <ProjectReference Include="..\BookApp.Persistence.EfCoreSql.Orders\BookApp.Persistence.EfCoreSql.Orders.csproj" />
-    <ProjectReference Include="..\BookApp.BizLogic.Orders\BookApp.BizLogic.Orders.csproj" />
+    <ProjectReference Include="..\BookApp.Orders.BizLogic\BookApp.Orders.BizLogic.csproj" />
   </ItemGroup>
 
 </Project>
