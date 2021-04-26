@@ -10,10 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookApp.Infrastructure.LoggingServices\BookApp.Infrastructure.LoggingServices.csproj" />
     <ProjectReference Include="..\BookApp.Books.Domain\BookApp.Books.Domain.csproj" />
     <ProjectReference Include="..\BookApp.Books.Persistence.EfCoreSql\BookApp.Books.Persistence.EfCoreSql.csproj" />
     <ProjectReference Include="..\BookApp.Books.Persistence.CosmosDb\BookApp.Books.Persistence.CosmosDb.csproj" />
+    <ProjectReference Include="..\BookApp.Main.Infrastructure.LoggingServices\BookApp.Main.Infrastructure.LoggingServices.csproj" />
   </ItemGroup>
 
 </Project>

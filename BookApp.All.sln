@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.UI", "BookApp.UI\BookApp.UI.csproj", "{322E577A-3A26-421A-9A70-9E9840614004}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Infrastructure.LoggingServices", "BookApp.Infrastructure.LoggingServices\BookApp.Infrastructure.LoggingServices.csproj", "{8A683D41-1B98-4192-89E9-D25A90B45517}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.BackgroundTasks", "BookApp.BackgroundTasks\BookApp.BackgroundTasks.csproj", "{861A2BB1-5398-4018-92FB-FB50CB06BFF3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Orders.BizLogic", "BookApp.Orders.BizLogic\BookApp.Orders.BizLogic.csproj", "{FD627FB5-52FA-4403-9CDC-971FDC44E7E1}"
@@ -57,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Orders.ServiceLayer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.UdfsSql", "BookApp.Books.ServiceLayer.UdfsSql\BookApp.Books.ServiceLayer.UdfsSql.csproj", "{1AA500E9-2DBD-4D0E-B6F0-8D492920957A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Main.Infrastructure.LoggingServices", "BookApp.Main.Infrastructure.LoggingServices\BookApp.Main.Infrastructure.LoggingServices.csproj", "{8B01EA87-1EC9-4800-8560-E1A4092B107D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,10 +71,6 @@ Global
 		{322E577A-3A26-421A-9A70-9E9840614004}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{322E577A-3A26-421A-9A70-9E9840614004}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{322E577A-3A26-421A-9A70-9E9840614004}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8A683D41-1B98-4192-89E9-D25A90B45517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A683D41-1B98-4192-89E9-D25A90B45517}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A683D41-1B98-4192-89E9-D25A90B45517}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A683D41-1B98-4192-89E9-D25A90B45517}.Release|Any CPU.Build.0 = Release|Any CPU
 		{861A2BB1-5398-4018-92FB-FB50CB06BFF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{861A2BB1-5398-4018-92FB-FB50CB06BFF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{861A2BB1-5398-4018-92FB-FB50CB06BFF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -159,6 +155,10 @@ Global
 		{1AA500E9-2DBD-4D0E-B6F0-8D492920957A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AA500E9-2DBD-4D0E-B6F0-8D492920957A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AA500E9-2DBD-4D0E-B6F0-8D492920957A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B01EA87-1EC9-4800-8560-E1A4092B107D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B01EA87-1EC9-4800-8560-E1A4092B107D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B01EA87-1EC9-4800-8560-E1A4092B107D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B01EA87-1EC9-4800-8560-E1A4092B107D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
