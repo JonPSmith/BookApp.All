@@ -27,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Infrastructur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Infrastructure.CosmosDb", "BookApp.Books.Infrastructure.CosmosDb\BookApp.Books.Infrastructure.CosmosDb.csproj", "{8D3D6B97-3B37-4954-A351-CE3F87F684B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Seeding.Infrastructure.Books", "BookApp.Seeding.Infrastructure.Books\BookApp.Seeding.Infrastructure.Books.csproj", "{7BCEF85E-19A5-4348-9BED-10E489170C4E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Persistence.EfCoreSql", "BookApp.Books.Persistence.EfCoreSql\BookApp.Books.Persistence.EfCoreSql.csproj", "{237DF216-6F1C-4027-86BA-5F64A1C9AA49}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Common.Persistence", "BookApp.Common.Persistence\BookApp.Common.Persistence.csproj", "{3BEB96F9-7EC0-414B-A792-DA2DA67A6BEE}"
@@ -56,6 +54,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.UdfsSql", "BookApp.Books.ServiceLayer.UdfsSql\BookApp.Books.ServiceLayer.UdfsSql.csproj", "{1AA500E9-2DBD-4D0E-B6F0-8D492920957A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Main.Infrastructure.LoggingServices", "BookApp.Main.Infrastructure.LoggingServices\BookApp.Main.Infrastructure.LoggingServices.csproj", "{8B01EA87-1EC9-4800-8560-E1A4092B107D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Infrastructure.Seeding", "BookApp.Books.Infrastructure.Seeding\BookApp.Books.Infrastructure.Seeding.csproj", "{0617648E-3E5B-4FEC-936E-0C201F60F3E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,10 +99,6 @@ Global
 		{8D3D6B97-3B37-4954-A351-CE3F87F684B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D3D6B97-3B37-4954-A351-CE3F87F684B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D3D6B97-3B37-4954-A351-CE3F87F684B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7BCEF85E-19A5-4348-9BED-10E489170C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BCEF85E-19A5-4348-9BED-10E489170C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BCEF85E-19A5-4348-9BED-10E489170C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BCEF85E-19A5-4348-9BED-10E489170C4E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{237DF216-6F1C-4027-86BA-5F64A1C9AA49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{237DF216-6F1C-4027-86BA-5F64A1C9AA49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{237DF216-6F1C-4027-86BA-5F64A1C9AA49}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -159,6 +155,10 @@ Global
 		{8B01EA87-1EC9-4800-8560-E1A4092B107D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B01EA87-1EC9-4800-8560-E1A4092B107D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B01EA87-1EC9-4800-8560-E1A4092B107D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0617648E-3E5B-4FEC-936E-0C201F60F3E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0617648E-3E5B-4FEC-936E-0C201F60F3E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0617648E-3E5B-4FEC-936E-0C201F60F3E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0617648E-3E5B-4FEC-936E-0C201F60F3E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

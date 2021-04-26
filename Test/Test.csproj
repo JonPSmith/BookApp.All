@@ -41,7 +41,6 @@
     <ProjectReference Include="..\BookApp.Orders.Domain\BookApp.Orders.Domain.csproj" />
     <ProjectReference Include="..\BookApp.Books.Infrastructure.CachedValues\BookApp.Books.Infrastructure.CachedValues.csproj" />
     <ProjectReference Include="..\BookApp.Books.Infrastructure.CosmosDb\BookApp.Books.Infrastructure.CosmosDb.csproj" />
-    <ProjectReference Include="..\BookApp.Seeding.Infrastructure.Books\BookApp.Seeding.Infrastructure.Books.csproj" />
     <ProjectReference Include="..\BookApp.Books.Persistence.EfCoreSql\BookApp.Books.Persistence.EfCoreSql.csproj" />
     <ProjectReference Include="..\BookApp.Books.Persistence.CosmosDb\BookApp.Books.Persistence.CosmosDb.csproj" />
     <ProjectReference Include="..\BookApp.Orders.Persistence.EfCoreSql\BookApp.Orders.Persistence.EfCoreSql.csproj" />
@@ -49,6 +48,7 @@
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.CosmosDirect\BookApp.Books.ServiceLayer.CosmosDirect.csproj" />
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.GoodLinq\BookApp.Books.ServiceLayer.GoodLinq.csproj" />
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.UdfsSql\BookApp.Books.ServiceLayer.UdfsSql.csproj" />
+    <ProjectReference Include="..\BookApp.Books.Infrastructure.Seeding\BookApp.Books.Infrastructure.Seeding.csproj" />
   </ItemGroup>
 
 </Project>
