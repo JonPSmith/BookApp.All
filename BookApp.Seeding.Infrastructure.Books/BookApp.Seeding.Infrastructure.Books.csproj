@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookApp.Persistance.EfCoreSql.Books\BookApp.Persistence.EfCoreSql.Books.csproj" />
+    <ProjectReference Include="..\BookApp.Persistence.EfCoreSql.Books\BookApp.Persistence.EfCoreSql.Books.csproj" />
     <ProjectReference Include="..\BookApp.Persistence.CosmosDb.Books\BookApp.Persistence.CosmosDb.Books.csproj" />
     <ProjectReference Include="..\BookApp.Books.Domain\BookApp.Books.Domain.csproj" />
   </ItemGroup>

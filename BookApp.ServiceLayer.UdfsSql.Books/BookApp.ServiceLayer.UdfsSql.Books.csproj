@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookApp.Persistance.EfCoreSql.Books\BookApp.Persistence.EfCoreSql.Books.csproj" />
+    <ProjectReference Include="..\BookApp.Persistence.EfCoreSql.Books\BookApp.Persistence.EfCoreSql.Books.csproj" />
     <ProjectReference Include="..\BookApp.ServiceLayer.DisplayCommon.Books\BookApp.ServiceLayer.DisplayCommon.Books.csproj" />
     <ProjectReference Include="..\BookApp.Books.Domain\BookApp.Books.Domain.csproj" />
   </ItemGroup>
