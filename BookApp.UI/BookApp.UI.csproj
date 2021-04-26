@@ -53,7 +53,6 @@
   <ItemGroup>
     <ProjectReference Include="..\BookApp.BackgroundTasks\BookApp.BackgroundTasks.csproj" />
     <ProjectReference Include="..\BookApp.Infrastructure.LoggingServices\BookApp.Infrastructure.LoggingServices.csproj" />
-    <ProjectReference Include="..\BookApp.Persistence.Common\BookApp.Persistence.Common.csproj" />
     <ProjectReference Include="..\BookApp.Persistence.CosmosDb.Books\BookApp.Persistence.CosmosDb.Books.csproj" />
     <ProjectReference Include="..\BookApp.Persistence.EfCoreSql.Orders.DbAccess\BookApp.Persistence.EfCoreSql.Orders.DbAccess.csproj" />
     <ProjectReference Include="..\BookApp.Persistence.EfCoreSql.Orders\BookApp.Persistence.EfCoreSql.Orders.csproj" />
@@ -73,6 +72,7 @@
     <ProjectReference Include="..\BookApp.Books.Infrastructure.CosmosDb\BookApp.Books.Infrastructure.CosmosDb.csproj" />
     <ProjectReference Include="..\BookApp.Seeding.Infrastructure.Books\BookApp.Seeding.Infrastructure.Books.csproj" />
     <ProjectReference Include="..\BookApp.Books.Persistence.EfCoreSql\BookApp.Books.Persistence.EfCoreSql.csproj" />
+    <ProjectReference Include="..\BookApp.Common.Persistence\BookApp.Common.Persistence.csproj" />
   </ItemGroup>
 
 
