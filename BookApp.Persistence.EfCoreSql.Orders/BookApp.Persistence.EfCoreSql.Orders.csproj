@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookApp.Domain.Orders\BookApp.Domain.Orders.csproj" />
     <ProjectReference Include="..\BookApp.Persistence.Common\BookApp.Persistence.Common.csproj" />
+    <ProjectReference Include="..\BookApp.Orders.Domain\BookApp.Orders.Domain.csproj" />
   </ItemGroup>
 
 </Project>

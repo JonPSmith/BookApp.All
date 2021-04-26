@@ -52,7 +52,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookApp.BackgroundTasks\BookApp.BackgroundTasks.csproj" />
-    <ProjectReference Include="..\BookApp.Domain.Orders\BookApp.Domain.Orders.csproj" />
     <ProjectReference Include="..\BookApp.Infrastructure.AppParts\BookApp.Infrastructure.AppParts.csproj" />
     <ProjectReference Include="..\BookApp.Infrastructure.Book.CachedValues\BookApp.Infrastructure.Books.CachedValues.csproj" />
     <ProjectReference Include="..\BookApp.Infrastructure.Books.CosmosDb\BookApp.Infrastructure.Books.CosmosDb.csproj" />
@@ -73,6 +72,7 @@
     <ProjectReference Include="..\BookApp.ServiceLayer.UdfsSql.Books\BookApp.ServiceLayer.UdfsSql.Books.csproj" />
     <ProjectReference Include="..\BookApp.Orders.BizLogic\BookApp.Orders.BizLogic.csproj" />
     <ProjectReference Include="..\BookApp.Books.Domain\BookApp.Books.Domain.csproj" />
+    <ProjectReference Include="..\BookApp.Orders.Domain\BookApp.Orders.Domain.csproj" />
   </ItemGroup>
 
 
