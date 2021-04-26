@@ -5,7 +5,7 @@ using System;
 using BookApp.Main.Infrastructure;
 using Microsoft.Extensions.Configuration;
 
-namespace BookApp.UI.Services
+namespace BookApp.Main.FrontEnd.Services
 {
     public static class BookAppSettingsExtensions
     {

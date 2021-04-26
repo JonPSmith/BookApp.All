@@ -5,7 +5,7 @@ using System;
 using System.Net;
 using Microsoft.AspNetCore.Http;
 
-namespace BookApp.UI.HelperExtensions
+namespace BookApp.Main.FrontEnd.HelperExtensions
 {
     public static class IsLocalExtension
     {

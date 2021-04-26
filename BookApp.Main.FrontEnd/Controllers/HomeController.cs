@@ -3,12 +3,12 @@
 
 using System.Diagnostics;
 using BookApp.Books.Persistence.EfCoreSql;
+using BookApp.Main.FrontEnd.HelperExtensions;
+using BookApp.Main.FrontEnd.Models;
 using BookApp.Main.Infrastructure;
-using BookApp.UI.HelperExtensions;
-using BookApp.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookApp.UI.Controllers
+namespace BookApp.Main.FrontEnd.Controllers
 {
     public class HomeController : BaseTraceController
     {
@@ -19,7 +19,7 @@ namespace BookApp.UI.Controllers
 
         public IActionResult DatabaseCounts([FromServices] BookDbContext context)
         {
-            return View(new DatabaseStatsDto(context));
+            return View((object) new DatabaseStatsDto(context));
         }
 
         public IActionResult Privacy()
@@ -40,7 +40,7 @@ namespace BookApp.UI.Controllers
         public IActionResult About()
         {
             var isLocal = Request.IsLocal();
-            return View(isLocal);
+            return View((object) isLocal);
         }
 
         //public IActionResult Contact()
@@ -52,7 +52,7 @@ namespace BookApp.UI.Controllers
 
         public IActionResult Error()
         {
-            return View(new ErrorViewModel
+            return View((object) new ErrorViewModel
                 { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }

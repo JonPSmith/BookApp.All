@@ -17,14 +17,14 @@ using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
 using BookApp.Books.ServiceLayer.GoodLinq;
 using BookApp.Books.ServiceLayer.GoodLinq.Dtos;
 using BookApp.Books.ServiceLayer.UdfsSql;
+using BookApp.Main.FrontEnd.HelperExtensions;
+using BookApp.Main.FrontEnd.Logger;
+using BookApp.Main.FrontEnd.Services;
 using BookApp.Main.Infrastructure;
 using BookApp.Orders.BizLogic.Orders;
 using BookApp.Orders.Persistence.DbAccess;
 using BookApp.Orders.Persistence.EfCoreSql;
 using BookApp.Orders.ServiceLayer.EfCoreSql.OrderServices;
-using BookApp.UI.HelperExtensions;
-using BookApp.UI.Logger;
-using BookApp.UI.Services;
 using GenericEventRunner.ForSetup;
 using GenericServices.Setup;
 using Microsoft.AspNetCore.Builder;
@@ -38,7 +38,7 @@ using Microsoft.Extensions.Logging;
 using NetCore.AutoRegisterDi;
 using SoftDeleteServices.Configuration;
 
-namespace BookApp.UI
+namespace BookApp.Main.FrontEnd
 {
     public class Startup
     {

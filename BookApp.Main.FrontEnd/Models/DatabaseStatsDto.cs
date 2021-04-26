@@ -5,7 +5,7 @@ using System.Linq;
 using BookApp.Books.Domain;
 using BookApp.Books.Persistence.EfCoreSql;
 
-namespace BookApp.UI.Models
+namespace BookApp.Main.FrontEnd.Models
 {
     public class DatabaseStatsDto
     {

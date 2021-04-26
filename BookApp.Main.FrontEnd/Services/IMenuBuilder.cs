@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace BookApp.UI.Services
+namespace BookApp.Main.FrontEnd.Services
 {
     public interface IMenuBuilder
     {

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.Extensions.Logging;
 
-namespace BookApp.UI.Logger
+namespace BookApp.Main.FrontEnd.Logger
 {
     /// <summary>
     /// This logger only logs for the current request, i.e. it overwrites the log when a new request starts

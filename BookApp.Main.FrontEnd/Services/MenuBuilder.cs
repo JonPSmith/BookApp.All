@@ -4,7 +4,7 @@
 using System.Collections.Generic;
 using BookApp.Main.Infrastructure;
 
-namespace BookApp.UI.Services
+namespace BookApp.Main.FrontEnd.Services
 {
     public class MenuBuilder : IMenuBuilder
     {

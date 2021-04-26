@@ -3,7 +3,7 @@
 
 using System;
 
-namespace BookApp.UI.Models
+namespace BookApp.Main.FrontEnd.Models
 {
     /// <summary>
     /// Cosmos DB settings

@@ -3,7 +3,7 @@
 
 using System.Reflection;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.UI;
+using BookApp.Main.FrontEnd;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using TestSupport.Attributes;

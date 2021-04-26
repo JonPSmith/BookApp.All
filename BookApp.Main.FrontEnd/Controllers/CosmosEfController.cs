@@ -9,7 +9,7 @@ using BookApp.Books.ServiceLayer.DisplayCommon.Dtos;
 using BookApp.Main.Infrastructure.LoggingServices;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookApp.UI.Controllers
+namespace BookApp.Main.FrontEnd.Controllers
 {
     public class CosmosEfController : BaseTraceController
     {

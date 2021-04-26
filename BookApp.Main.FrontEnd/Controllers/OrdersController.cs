@@ -4,7 +4,7 @@
 using BookApp.Orders.ServiceLayer.EfCoreSql.OrderServices;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookApp.UI.Controllers
+namespace BookApp.Main.FrontEnd.Controllers
 {
     public class OrdersController : BaseTraceController
     {

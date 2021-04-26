@@ -1,9 +1,9 @@
 ﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
+using BookApp.Main.FrontEnd.HelperExtensions;
+using BookApp.Main.FrontEnd.Services;
 using BookApp.Main.Infrastructure;
-using BookApp.UI.HelperExtensions;
-using BookApp.UI.Services;
 using TestSupport.Helpers;
 using Xunit;
 using Xunit.Abstractions;

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using BookApp.Books.Infrastructure.Seeding;
 using BookApp.Books.Persistence.CosmosDb;
 using BookApp.Books.Persistence.EfCoreSql;
-using BookApp.UI.HelperExtensions;
+using BookApp.Main.FrontEnd.HelperExtensions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BookApp.UI.Controllers
+namespace BookApp.Main.FrontEnd.Controllers
 {
     public class GenerateController : BaseTraceController
     {

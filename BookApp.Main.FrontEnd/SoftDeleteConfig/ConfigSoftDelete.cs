@@ -5,7 +5,7 @@ using BookApp.Books.Domain.SupportTypes;
 using BookApp.Books.Persistence.EfCoreSql;
 using SoftDeleteServices.Configuration;
 
-namespace BookApp.UI.SoftDeleteConfig
+namespace BookApp.Main.FrontEnd.SoftDeleteConfig
 {
     public class ConfigSoftDelete : SingleSoftDeleteConfiguration<ISoftDelete>
     {

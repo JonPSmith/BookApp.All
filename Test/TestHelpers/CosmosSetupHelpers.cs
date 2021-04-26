@@ -2,7 +2,7 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using BookApp.Books.Persistence.CosmosDb;
-using BookApp.UI.Models;
+using BookApp.Main.FrontEnd.Models;
 using Microsoft.Azure.Cosmos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
