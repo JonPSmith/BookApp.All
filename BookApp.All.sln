@@ -13,49 +13,47 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.UI", "BookApp.UI\BookApp.UI.csproj", "{322E577A-3A26-421A-9A70-9E9840614004}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.BackgroundTasks", "BookApp.BackgroundTasks\BookApp.BackgroundTasks.csproj", "{861A2BB1-5398-4018-92FB-FB50CB06BFF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Orders.BizLogic", "BookApp.Orders.BizLogic\BookApp.Orders.BizLogic.csproj", "{FD627FB5-52FA-4403-9CDC-971FDC44E7E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Orders.BizLogic", "BookApp.Orders.BizLogic\BookApp.Orders.BizLogic.csproj", "{FD627FB5-52FA-4403-9CDC-971FDC44E7E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.Domain", "BookApp.Books.Domain\BookApp.Books.Domain.csproj", "{BAA0D46D-B92F-4C43-96F6-3A48986ABD12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Domain", "BookApp.Books.Domain\BookApp.Books.Domain.csproj", "{BAA0D46D-B92F-4C43-96F6-3A48986ABD12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Orders.Domain", "BookApp.Orders.Domain\BookApp.Orders.Domain.csproj", "{B8E1E782-8B28-45B6-B775-0C8F681644D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Orders.Domain", "BookApp.Orders.Domain\BookApp.Orders.Domain.csproj", "{B8E1E782-8B28-45B6-B775-0C8F681644D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Main.Infrastructure", "BookApp.Main.Infrastructure\BookApp.Main.Infrastructure.csproj", "{3B3E831A-D46E-4AB7-B2C9-6AB332C90163}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Main.Infrastructure", "BookApp.Main.Infrastructure\BookApp.Main.Infrastructure.csproj", "{3B3E831A-D46E-4AB7-B2C9-6AB332C90163}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.Infrastructure.CachedValues", "BookApp.Books.Infrastructure.CachedValues\BookApp.Books.Infrastructure.CachedValues.csproj", "{75C75071-930B-41EE-8114-05AF99150E17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Infrastructure.CachedValues", "BookApp.Books.Infrastructure.CachedValues\BookApp.Books.Infrastructure.CachedValues.csproj", "{75C75071-930B-41EE-8114-05AF99150E17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.Infrastructure.CosmosDb", "BookApp.Books.Infrastructure.CosmosDb\BookApp.Books.Infrastructure.CosmosDb.csproj", "{8D3D6B97-3B37-4954-A351-CE3F87F684B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Infrastructure.CosmosDb", "BookApp.Books.Infrastructure.CosmosDb\BookApp.Books.Infrastructure.CosmosDb.csproj", "{8D3D6B97-3B37-4954-A351-CE3F87F684B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.Persistence.EfCoreSql", "BookApp.Books.Persistence.EfCoreSql\BookApp.Books.Persistence.EfCoreSql.csproj", "{237DF216-6F1C-4027-86BA-5F64A1C9AA49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Persistence.EfCoreSql", "BookApp.Books.Persistence.EfCoreSql\BookApp.Books.Persistence.EfCoreSql.csproj", "{237DF216-6F1C-4027-86BA-5F64A1C9AA49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Common.Persistence", "BookApp.Common.Persistence\BookApp.Common.Persistence.csproj", "{3BEB96F9-7EC0-414B-A792-DA2DA67A6BEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Common.Persistence", "BookApp.Common.Persistence\BookApp.Common.Persistence.csproj", "{3BEB96F9-7EC0-414B-A792-DA2DA67A6BEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.Persistence.CosmosDb", "BookApp.Books.Persistence.CosmosDb\BookApp.Books.Persistence.CosmosDb.csproj", "{E0A763FE-F1A8-40E9-9167-1D7E1A4D3A21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Persistence.CosmosDb", "BookApp.Books.Persistence.CosmosDb\BookApp.Books.Persistence.CosmosDb.csproj", "{E0A763FE-F1A8-40E9-9167-1D7E1A4D3A21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Orders.Persistence.EfCoreSql", "BookApp.Orders.Persistence.EfCoreSql\BookApp.Orders.Persistence.EfCoreSql.csproj", "{7568FEA9-7A5F-4DEE-AF38-2776D4A553C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Orders.Persistence.EfCoreSql", "BookApp.Orders.Persistence.EfCoreSql\BookApp.Orders.Persistence.EfCoreSql.csproj", "{7568FEA9-7A5F-4DEE-AF38-2776D4A553C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Orders.Persistence.DbAccess", "BookApp.Orders.Persistence.DbAccess\BookApp.Orders.Persistence.DbAccess.csproj", "{EF6E6D7E-5055-4D78-8265-F08AF2300B1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Orders.Persistence.DbAccess", "BookApp.Orders.Persistence.DbAccess\BookApp.Orders.Persistence.DbAccess.csproj", "{EF6E6D7E-5055-4D78-8265-F08AF2300B1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.ServiceLayer.CachedSql", "BookApp.Books.ServiceLayer.CachedSql\BookApp.Books.ServiceLayer.CachedSql.csproj", "{C8CB9E73-C395-4D3E-9B9D-D4188A1B3626}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.CachedSql", "BookApp.Books.ServiceLayer.CachedSql\BookApp.Books.ServiceLayer.CachedSql.csproj", "{C8CB9E73-C395-4D3E-9B9D-D4188A1B3626}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.ServiceLayer.CosmosDirect", "BookApp.Books.ServiceLayer.CosmosDirect\BookApp.Books.ServiceLayer.CosmosDirect.csproj", "{C7E63400-162B-492D-9719-2838030F1C3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.CosmosDirect", "BookApp.Books.ServiceLayer.CosmosDirect\BookApp.Books.ServiceLayer.CosmosDirect.csproj", "{C7E63400-162B-492D-9719-2838030F1C3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.ServiceLayer.CosmosEf", "BookApp.Books.ServiceLayer.CosmosEf\BookApp.Books.ServiceLayer.CosmosEf.csproj", "{35346ED3-951D-4A40-B16A-BA968F404CFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.CosmosEf", "BookApp.Books.ServiceLayer.CosmosEf\BookApp.Books.ServiceLayer.CosmosEf.csproj", "{35346ED3-951D-4A40-B16A-BA968F404CFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.ServiceLayer.DapperSql", "BookApp.Books.ServiceLayer.DapperSql\BookApp.Books.ServiceLayer.DapperSql.csproj", "{E621AB88-D483-4C2C-8F9B-861975EC54DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.DapperSql", "BookApp.Books.ServiceLayer.DapperSql\BookApp.Books.ServiceLayer.DapperSql.csproj", "{E621AB88-D483-4C2C-8F9B-861975EC54DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.ServiceLayer.GoodLinq", "BookApp.Books.ServiceLayer.GoodLinq\BookApp.Books.ServiceLayer.GoodLinq.csproj", "{B4233FC4-C8F3-433C-B279-53D011FC1191}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.GoodLinq", "BookApp.Books.ServiceLayer.GoodLinq\BookApp.Books.ServiceLayer.GoodLinq.csproj", "{B4233FC4-C8F3-433C-B279-53D011FC1191}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.ServiceLayer.DisplayCommon", "BookApp.Books.ServiceLayer.DisplayCommon\BookApp.Books.ServiceLayer.DisplayCommon.csproj", "{CDF74665-638A-4BD8-A887-5578C967610C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.DisplayCommon", "BookApp.Books.ServiceLayer.DisplayCommon\BookApp.Books.ServiceLayer.DisplayCommon.csproj", "{CDF74665-638A-4BD8-A887-5578C967610C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Orders.ServiceLayer.EfCoreSql", "BookApp.Orders.ServiceLayer.EfCoreSql\BookApp.Orders.ServiceLayer.EfCoreSql.csproj", "{15DBF394-6FC2-461D-82F3-B82EECE127E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Orders.ServiceLayer.EfCoreSql", "BookApp.Orders.ServiceLayer.EfCoreSql\BookApp.Orders.ServiceLayer.EfCoreSql.csproj", "{15DBF394-6FC2-461D-82F3-B82EECE127E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.ServiceLayer.UdfsSql", "BookApp.Books.ServiceLayer.UdfsSql\BookApp.Books.ServiceLayer.UdfsSql.csproj", "{1AA500E9-2DBD-4D0E-B6F0-8D492920957A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.UdfsSql", "BookApp.Books.ServiceLayer.UdfsSql\BookApp.Books.ServiceLayer.UdfsSql.csproj", "{1AA500E9-2DBD-4D0E-B6F0-8D492920957A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Main.Infrastructure.LoggingServices", "BookApp.Main.Infrastructure.LoggingServices\BookApp.Main.Infrastructure.LoggingServices.csproj", "{8B01EA87-1EC9-4800-8560-E1A4092B107D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Main.Infrastructure.LoggingServices", "BookApp.Main.Infrastructure.LoggingServices\BookApp.Main.Infrastructure.LoggingServices.csproj", "{8B01EA87-1EC9-4800-8560-E1A4092B107D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Infrastructure.Seeding", "BookApp.Books.Infrastructure.Seeding\BookApp.Books.Infrastructure.Seeding.csproj", "{0617648E-3E5B-4FEC-936E-0C201F60F3E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.Infrastructure.Seeding", "BookApp.Books.Infrastructure.Seeding\BookApp.Books.Infrastructure.Seeding.csproj", "{0617648E-3E5B-4FEC-936E-0C201F60F3E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,10 +69,6 @@ Global
 		{322E577A-3A26-421A-9A70-9E9840614004}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{322E577A-3A26-421A-9A70-9E9840614004}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{322E577A-3A26-421A-9A70-9E9840614004}.Release|Any CPU.Build.0 = Release|Any CPU
-		{861A2BB1-5398-4018-92FB-FB50CB06BFF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{861A2BB1-5398-4018-92FB-FB50CB06BFF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{861A2BB1-5398-4018-92FB-FB50CB06BFF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{861A2BB1-5398-4018-92FB-FB50CB06BFF3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FD627FB5-52FA-4403-9CDC-971FDC44E7E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FD627FB5-52FA-4403-9CDC-971FDC44E7E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD627FB5-52FA-4403-9CDC-971FDC44E7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU

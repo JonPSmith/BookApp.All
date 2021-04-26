@@ -3,7 +3,6 @@
 
 using System.Reflection;
 using System.Text.Json.Serialization;
-using BookApp.BackgroundTasks;
 using BookApp.Books.Infrastructure.CachedValues;
 using BookApp.Books.Infrastructure.CachedValues.ConcurrencyHandlers;
 using BookApp.Books.Infrastructure.CachedValues.EventHandlers;
@@ -107,8 +106,6 @@ namespace BookApp.UI
                     Assembly.GetAssembly(typeof(IListUdfsBooksService))
                 )
                 .AsPublicImplementedInterfaces();
-
-            services.AddHostedService<CheckFixCacheBackground>();
 
             //Register EfCore.GenericEventRunner
             var eventConfig = new GenericEventRunnerConfig
