@@ -43,12 +43,12 @@
     <ProjectReference Include="..\BookApp.Books.Persistence.EfCoreSql\BookApp.Books.Persistence.EfCoreSql.csproj" />
     <ProjectReference Include="..\BookApp.Books.Persistence.CosmosDb\BookApp.Books.Persistence.CosmosDb.csproj" />
     <ProjectReference Include="..\BookApp.Orders.Persistence.EfCoreSql\BookApp.Orders.Persistence.EfCoreSql.csproj" />
-    <ProjectReference Include="..\BookApp.Orders.Persistence.DbAccess\BookApp.Orders.Persistence.DbAccess.csproj" />
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.CosmosDirect\BookApp.Books.ServiceLayer.CosmosDirect.csproj" />
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.GoodLinq\BookApp.Books.ServiceLayer.GoodLinq.csproj" />
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.UdfsSql\BookApp.Books.ServiceLayer.UdfsSql.csproj" />
     <ProjectReference Include="..\BookApp.Books.Infrastructure.Seeding\BookApp.Books.Infrastructure.Seeding.csproj" />
     <ProjectReference Include="..\BookApp.Main.FrontEnd\BookApp.Main.FrontEnd.csproj" />
+    <ProjectReference Include="..\BookApp.Orders.BizDbAccess\BookApp.Orders.BizDbAccess.csproj" />
   </ItemGroup>
 
 </Project>

@@ -61,7 +61,6 @@
     <ProjectReference Include="..\BookApp.Common.Persistence\BookApp.Common.Persistence.csproj" />
     <ProjectReference Include="..\BookApp.Books.Persistence.CosmosDb\BookApp.Books.Persistence.CosmosDb.csproj" />
     <ProjectReference Include="..\BookApp.Orders.Persistence.EfCoreSql\BookApp.Orders.Persistence.EfCoreSql.csproj" />
-    <ProjectReference Include="..\BookApp.Orders.Persistence.DbAccess\BookApp.Orders.Persistence.DbAccess.csproj" />
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.CachedSql\BookApp.Books.ServiceLayer.CachedSql.csproj" />
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.CosmosDirect\BookApp.Books.ServiceLayer.CosmosDirect.csproj" />
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.CosmosEf\BookApp.Books.ServiceLayer.CosmosEf.csproj" />
@@ -71,6 +70,7 @@
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.UdfsSql\BookApp.Books.ServiceLayer.UdfsSql.csproj" />
     <ProjectReference Include="..\BookApp.Main.Infrastructure.LoggingServices\BookApp.Main.Infrastructure.LoggingServices.csproj" />
     <ProjectReference Include="..\BookApp.Books.Infrastructure.Seeding\BookApp.Books.Infrastructure.Seeding.csproj" />
+    <ProjectReference Include="..\BookApp.Orders.BizDbAccess\BookApp.Orders.BizDbAccess.csproj" />
   </ItemGroup>
 
 

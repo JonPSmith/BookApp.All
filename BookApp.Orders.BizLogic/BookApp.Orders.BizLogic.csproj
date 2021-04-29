@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookApp.Orders.Domain\BookApp.Orders.Domain.csproj" />
-    <ProjectReference Include="..\BookApp.Orders.Persistence.DbAccess\BookApp.Orders.Persistence.DbAccess.csproj" />
+    <ProjectReference Include="..\BookApp.Orders.BizDbAccess\BookApp.Orders.BizDbAccess.csproj" />
   </ItemGroup>
 
 </Project>
