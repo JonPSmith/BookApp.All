@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookApp.Orders.Domain;
 
-namespace BookApp.Orders.Persistence.DbAccess
+namespace BookApp.Orders.BizDbAccess
 {
     public interface IPlaceOrderDbAccess
     {

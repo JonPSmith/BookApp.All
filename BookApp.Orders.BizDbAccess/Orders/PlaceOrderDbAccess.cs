@@ -8,7 +8,7 @@ using BookApp.Orders.Domain;
 using BookApp.Orders.Persistence.EfCoreSql;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookApp.Orders.Persistence.DbAccess.Orders
+namespace BookApp.Orders.BizDbAccess.Orders
 {
     public class PlaceOrderDbAccess : IPlaceOrderDbAccess
     {
