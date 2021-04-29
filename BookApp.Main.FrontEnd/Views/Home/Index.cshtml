@@ -3,69 +3,38 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h2>Welcome to this example BookApp</h2>
+<h2>Welcome to BookApp.All modular monolith</h2>
 <div>
-    Using <span class="h3">@Model</span> setup
+    Using <span class="h4">@Model</span> setup
 </div>
-<br/>
+<br />
 <p>
-    This ASP.NET Core web site uses Entity Framework Core (EF Core) to display books for sale. 
-    It has three main purposes:
-    <ul>
-        <li>To show you how to use EF Core to access a database.</li>
-        <li>To allow you to compare different database approaches against performance.</li>
-        <li>
-            As an example of a <a href="http://www.kamilgrzybek.com/design/modular-monolith-primer/">Modular Monolith</a>
-            using a <a href="https://www.infoq.com/articles/ddd-in-practice/">Domain-Driven Design</a> approach 
-            in a <a href="https://pusher.com/tutorials/clean-architecture-introduction">clean code architecture</a>.
-        </li>
-    </ul>
+    This application is build with modularized modular monolith design as described in
+    <a href="#">this section of the first article</a> in the evolving modular monoliths series.
+    It contains 22 projects, plus a project containing the unit tests.
 </p>
-<h4>Things to do</h4>
-<ul>
-    <li>
-        Click on one the first menu items after the BookApp header. This will show you some books
-    </li>
-    <li>
-        Click <a asp-area="" asp-controller="Home" asp-action="DatabaseCounts">this link</a> to see how many books, etc are in the SQL database. 
-        <br/>
-        <i>PS. It can be slow to show if there are lots of books.</i>
-    </li>
-    <li>
-        To swap the Book App linked to Chapter 15, then click <a asp-area="" asp-controller="Home" asp-action="Chapter15Setup">Chapter 15 Setup</a> link. 
-    </li>
-    <li>
-        To swap the Book App linked to Chapter 16, then click <a asp-area="" asp-controller="Home" asp-action="Chapter16Setup">Chapter 16 Setup</a> link. 
-    </li>
-</ul>
+<p>
+    This application was first built for the <a href="https://bit.ly/EfCoreBook2">Entity Framework Core in Action, second edition</a> book.
+    Its design has been improved to provide a better modular monolith design.
+</p>
 
-<hr>
+<hr/>
+
+<h5>Click the Books menu item to see the books on sale.</h5>
+
+<hr/>
 
 <p>
-    Thanks to <strong><a href="https://www.manning.com/">Manning Publications</a></strong> for providing their book information to act as the test data in this application. 
-    <br/>
+    Thanks to <strong><a href="https://www.manning.com/">Manning Publications</a></strong> for providing their book information to act as the test data in this application.
+    <br />
     <i>
         NOTE I provide a link to the Manning's version of the book if you want to see, or buy, the real book
-        <br/>
+        <br />
         (full disclosure: I get a small commission if you buy a book from Manning via this app.)
     </i>
 </p>
-<p>
-    The menu lists the different techniques you can try to query the database. 
-    And you see the SQL used to query the database via the "Logs" menu item. 
-</p>
-<p>
-    You can find the code for this application in the Git repo at
-    <a href="https://github.com/JonPSmith/EfCoreinAction-SecondEdition">https://github.com/JonPSmith/EfCoreinAction-SecondEdition</a> in the branch <strong>Part3</strong>.
-</p>
-
 
 <div>
     <span class="h4">Jon P Smith</span>
     <span>Author of the <a href="https://bit.ly/EfCoreBook2">Entity Framework Core in Action, second edition</a> book.</span>
 </div>
-<p>
-    You can find the code for this application in the branch <i>Part3</i> in the GitHub repo at
-    <a href="https://github.com/JonPSmith/EfCoreinAction-SecondEdition">https://github.com/JonPSmith/EfCoreinAction-SecondEdition</a> and 
-    <a href="http://www.thereformedprogrammer.net/">my blog site</a>, where you will find articles on Entity Framework Core, ASP.NET Core, and much more.
-</p>
