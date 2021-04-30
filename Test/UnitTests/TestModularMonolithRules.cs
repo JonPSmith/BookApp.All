@@ -1,10 +1,12 @@
 // Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Microsoft.Extensions.Logging;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -18,13 +20,39 @@ namespace Test.UnitTests
         public TestModularMonolithRules(ITestOutputHelper output)
         {
             _output = output;
+            _numErrorsInTest = 0;
         }
 
+        private LogLevel ShowLevel = LogLevel.Information;
+
+        private int _numErrorsInTest;
+
+        private void OutputMessage(string message, LogLevel messageLevel = LogLevel.Information)
+        {
+            if (messageLevel < ShowLevel)
+                return;
+
+            switch (messageLevel)
+            {
+                case LogLevel.Information:
+                    _output.WriteLine(message);
+                    break;
+                case LogLevel.Warning:
+                    _output.WriteLine($"Warning: {message}");
+                    break;
+                case LogLevel.Error:
+                    _output.WriteLine($"ERROR: {message}");
+                    _numErrorsInTest++;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(messageLevel), messageLevel, "Only some levels accepted");
+            }
+        }
 
         /// <summary>
         /// This should set this constant to the prefix for the project names
         /// </summary>
-        private const string ProjectPrefix = "BookApp.";
+        private const string ProjectPrefix = "BookApp.Books.";
 
         /// <summary>
         /// This should define the prefix of projects in each layer.
@@ -90,12 +118,15 @@ namespace Test.UnitTests
             }
         }
 
+        //--------------------------------------------------------------------------------
+
         [Fact]
         public void CheckNoUnknownProjects()
         {
             //SETUP
             var hasErrors = false;
             var assemblies = AllAppAssemblies.ToList();
+            OutputMessage($"Checking no projects are left out of the tests");
 
             //ATTEMPT
             foreach (var prefix in _layersPrefixInOrder)
@@ -107,27 +138,30 @@ namespace Test.UnitTests
             //VERIFY
             if (assemblies.Any())
             {
-                _output.WriteLine(
-                    "The following projects aren't in the valid layer names. Please add to ignore list if they are OK");
-                _output.WriteLine(string.Join(", ", assemblies.Select(x => x.GetName().Name)));
+                var message =
+                    "The following projects aren't in the valid layer names. Please add to ignore list if they are OK\n" +
+                    string.Join(", ", assemblies.Select(x => x.GetName().Name));
+                OutputMessage(message, LogLevel.Error);
                 Assert.False(hasErrors);
             }
+            Assert.Equal(0, _numErrorsInTest);
         }
 
         [Fact]
         public void TestLowerLayersDoNotDependOnHigherLayers()
         {
             //SETUP
-            var hasErrors = false;
 
             //ATTEMPT
             foreach (var namespacesPrefix in CheckNotAccessingOuterLayers())
             {
                 var assembliesToCheck = AllAppAssemblies
                     .Where(x => x.GetName().Name.StartsWith(namespacesPrefix.higherLayer)).ToArray();
-                _output.WriteLine(assembliesToCheck.Any()
-                    ? $"Checking {namespacesPrefix.higherLayer}.. does not rely on a {namespacesPrefix.lowerLayer}"
-                    : $"No projects found in {namespacesPrefix.higherLayer}.. namespace");
+                if (assembliesToCheck.Any())
+                    OutputMessage(
+                        $"Checking {namespacesPrefix.higherLayer}.. does not rely on a {namespacesPrefix.lowerLayer}");
+                else
+                    OutputMessage($"No projects found in {namespacesPrefix.higherLayer}.. namespace", LogLevel.Warning);
 
                 foreach (var assemblyToCheck in assembliesToCheck)
                 {
@@ -135,47 +169,45 @@ namespace Test.UnitTests
                         .Where(x => x.Name.StartsWith(namespacesPrefix.lowerLayer)).ToList();
                     if (badLinks.Any())
                     {
-                        hasErrors = true;
                         foreach (var assemblyName in badLinks)
                         {
-                            _output.WriteLine($"Assembly {assemblyToCheck.GetName().Name} should not link to project {assemblyName.Name}");
+                            OutputMessage($"Assembly {assemblyToCheck.GetName().Name} should not link to project {assemblyName.Name}", LogLevel.Error);
                         }
                     }
                 }
 
                 //VERIFY
-                Assert.False(hasErrors);
+                Assert.Equal(0, _numErrorsInTest);
             }
         }
 
         [Fact]
         public void TestOnlyAccessesProjectsInSameNameSpaceOtherThanCommon()
         {
-            var hasErrors = false;
             foreach (var namespacePrefix in _layersPrefixInOrder)
             {
                 var assembliesToCheck = AllAppAssemblies.Where(x => x.GetName().Name.StartsWith(namespacePrefix)).ToArray();
-                _output.WriteLine(assembliesToCheck.Any()
-                    ? $"Check {namespacePrefix}.. for linking to project in same layer that hasn't got \"Common\" in its name"
-                    : $"No projects found in {namespacePrefix}.. namespace");
+                if (assembliesToCheck.Any())
+                    OutputMessage(
+                        $"Check {namespacePrefix} for linking to other projects in same layer");
+                else
+                    OutputMessage($"No projects found in {namespacePrefix}.. namespace", LogLevel.Warning);
 
-                _output.WriteLine($"Check {namespacePrefix}.. for linking to project in same layer that hasn't got \"Common\" in its name");
                 foreach (var assemblyToCheck in AllAppAssemblies.Where(x => x.GetName().Name.StartsWith(namespacePrefix)))
                 {
                     var badLinks = assemblyToCheck.GetReferencedAssemblies()
                         .Where(x => x.Name.StartsWith(namespacePrefix) && !x.Name.Contains("Common")).ToList();
                     if (badLinks.Any())
                     {
-                        hasErrors = true;
                         foreach (var assemblyName in badLinks)
                         {
-                            _output.WriteLine($"Assembly {assemblyToCheck.GetName().Name} should not link to project {assemblyName.Name}");
+                            OutputMessage($"Assembly {assemblyToCheck.GetName().Name} should not link to project {assemblyName.Name}", LogLevel.Error);
                         }
                     }
                 }
 
                 //VERIFY
-                Assert.False(hasErrors);
+                Assert.Equal(0, _numErrorsInTest);
             }
         }
 
