@@ -1,181 +1,192 @@
 // Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Microsoft.Extensions.Logging;
+using Test.TestHelpers;
 using Xunit;
 using Xunit.Abstractions;
+using Xunit.Extensions.AssertExtensions;
 
 namespace Test.UnitTests
 {
     public class TestModularMonolithRules
     {
+        private const string NameToAllowMultipleAccessed = "Common";
 
         private readonly ITestOutputHelper _output;
+        private readonly ModularMonolithRulesChecker _rulesChecker;
 
         public TestModularMonolithRules(ITestOutputHelper output)
         {
             _output = output;
+            _rulesChecker = new ModularMonolithRulesChecker("BookApp",
+                "ServiceLayer,Infrastructure,BizLogic,BizDbAccess,Persistence,Domain",
+                "Main.*");
         }
 
-
-        /// <summary>
-        /// This should set this constant to the prefix for the project names
-        /// </summary>
-        private const string ProjectPrefix = "BookApp.";
-
-        /// <summary>
-        /// This should define the prefix of projects in each layer.
-        /// Note that they should be in order, with the higher levels coming first 
-        /// </summary>
-        private readonly string[] _layersPrefixInOrder = new[]
-        {
-            $"{ProjectPrefix}ServiceLayer",
-            $"{ProjectPrefix}Infrastructure",
-            $"{ProjectPrefix}BizLogic",
-            $"{ProjectPrefix}BizDbAccess",
-            $"{ProjectPrefix}Persistence",
-            $"{ProjectPrefix}Domain",
-        };
-
-        /// <summary>
-        /// This should contain the project names to ignore
-        /// </summary>
-        private static readonly string[] _assembliesToIgnore = new[]
-        {
-            $"{ProjectPrefix}AppSetup",
-            $"{ProjectPrefix}Test",
-        };
-
-        //Holds all the the assemblies starting with the prefix
-        private static readonly List<Assembly> AllAppAssemblies = GetAppAssemblies().ToList();
-
-        /// <summary>
-        /// This finds all the projects (assemblies) that the unit test is is linked to and filters them
-        /// to only look at the projects starting with the NameSpacePrefix constant and not in the ignore list
-        /// </summary>
-        /// <returns></returns>
-        private static IEnumerable<Assembly> GetAppAssemblies()
-        {
-            //see https://stackoverflow.com/a/55672480/1434764
-            var assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            foreach (var path in Directory.GetFiles(assemblyFolder, $"{ProjectPrefix}*.dll"))
-            {
-                if (_assembliesToIgnore.Contains( Path.GetFileNameWithoutExtension(path)))
-                    continue;
-
-                yield return Assembly.LoadFrom(path);
-            }
-        }
-
-        /// <summary>
-        /// This returns the a list of two layer names: a higher level and a lower level
-        /// This list provides every combination of higher and lower levels so that the code
-        /// can check that lower levels don't reference a higher level
-        /// </summary>
-        /// <returns>
-        /// higherLayer = a higher layer name
-        /// lowerLayer = a lower layer that should not refer to the higher layer
-        /// </returns>
-        private IEnumerable<(string higherLayer, string lowerLayer)> CheckNotAccessingOuterLayers()
-        {
-            for (int i = 1; i < _layersPrefixInOrder.Length; i++)
-            {
-                for (int j = 0; j < i; j++)
-                {
-                    yield return (_layersPrefixInOrder[i], _layersPrefixInOrder[j]);
-                }
-            }
-        }
 
         [Fact]
         public void CheckNoUnknownProjects()
         {
             //SETUP
-            var hasErrors = false;
-            var assemblies = AllAppAssemblies.ToList();
+            _rulesChecker.OutputMessage($"Checking no projects are left out of the tests", _output);
 
             //ATTEMPT
-            foreach (var prefix in _layersPrefixInOrder)
+            var localProjectsList = _rulesChecker.ProjectsToScan.ToList();
+            foreach (var layerName in _rulesChecker.LayersNamesInOrder)
             {
-                var assembliesInLayer = assemblies.Where(x => x.GetName().Name.StartsWith(prefix)).ToList();
-                assembliesInLayer.ForEach(x => assemblies.Remove(x));
+                var assembliesInLayer = localProjectsList.Where(x => x.LayerName == layerName).ToList();
+                assembliesInLayer.ForEach(x => localProjectsList.Remove(x));
             }
 
             //VERIFY
-            if (assemblies.Any())
+            if (localProjectsList.Any())
             {
-                _output.WriteLine(
-                    "The following projects aren't in the valid layer names. Please add to ignore list if they are OK");
-                _output.WriteLine(string.Join(", ", assemblies.Select(x => x.GetName().Name)));
-                Assert.False(hasErrors);
+                var message =
+                    "The following projects aren't in the valid layer names. Please add to ignore list if they are OK\n" +
+                    string.Join("\n", localProjectsList.Select(x => x.ToString()));
+                _rulesChecker.OutputMessage(message, _output , LogLevel.Error);
             }
+            Assert.Equal(0, _rulesChecker.NumErrorsInTest);
         }
+
+        [Fact]
+        public void TestDifferentBoundedContextsDoNotMix()
+        {
+            //SETUP
+            _rulesChecker.OutputMessage($"Checking that different bounded contexts only share the {NameToAllowMultipleAccessed} layer.", _output);
+
+            //ATTEMPT
+            var bContextDir = _rulesChecker.GetBoundedContextLayerWithTheirReferencedProjectNames();
+            foreach (var firstBContextNames in bContextDir.Keys.Where(x => x != NameToAllowMultipleAccessed))
+            {
+                foreach (var secondBContextNames in bContextDir.Keys
+                    .Where(x => x != NameToAllowMultipleAccessed && x != firstBContextNames))
+                {
+                    var badOverlaps = bContextDir[firstBContextNames]
+                        .Where(x => bContextDir[secondBContextNames].Contains(x)
+                              && !x.StartsWith($"{_rulesChecker.AppName}.{NameToAllowMultipleAccessed}"))
+                        .ToList();
+                    badOverlaps.ForEach(x => _rulesChecker.OutputMessage(
+                            $"The {firstBContextNames} bounded context shares {x} with bounded context {secondBContextNames}",
+                            _output, LogLevel.Error));
+                }
+            }
+
+            //VERIFY
+            Assert.Equal(0, _rulesChecker.NumErrorsInTest);
+        }
+
+        [Fact]
+        public void TestThatEachBoundedContextsObeysTheOneProjectPerLayer()
+        {
+            //SETUP
+
+            //ATTEMPT
+            var bContextGroup = _rulesChecker.ProjectsToScan.GroupBy(x => x.BContextName);
+            foreach (var groupToCheck in bContextGroup)
+            {
+                var projectsInBContext = groupToCheck.ToList();
+
+                foreach (var layerNames in _rulesChecker.CombinationOfLayerNames())
+                {
+                    var projectsInTopLayer = projectsInBContext
+                        .Where(x => x.LayerName == layerNames.higherLayer).ToList();
+                    foreach (var topLayerProject in projectsInTopLayer)
+                    {
+                        var projectsReferredToInLowerLayer = topLayerProject.PropertyAssembly.GetReferencedAssemblies()
+                            .Where(x => x.Name.StartsWith(_rulesChecker.AppNameAndLayer(groupToCheck.Key, layerNames.lowerLayer)))
+                            .ToList();
+
+                        if (projectsReferredToInLowerLayer.Count > 1)
+                        {
+                                var message =
+                                    $"Project {topLayerProject} links to multiple multiple projects in layer {layerNames.lowerLayer}\n    " +
+                                    string.Join(" and ", projectsReferredToInLowerLayer.Select(x => x.Name));
+                            _rulesChecker.OutputMessage(message, _output, LogLevel.Error);
+                        }
+                    }
+                }
+            }
+
+
+            //VERIFY
+            Assert.Equal(0, _rulesChecker.NumErrorsInTest);
+        }
+
 
         [Fact]
         public void TestLowerLayersDoNotDependOnHigherLayers()
         {
             //SETUP
-            var hasErrors = false;
 
             //ATTEMPT
-            foreach (var namespacesPrefix in CheckNotAccessingOuterLayers())
+            var bContextGroup = _rulesChecker.ProjectsToScan.GroupBy(x => x.BContextName);
+            foreach (var groupToCheck in bContextGroup)
             {
-                var assembliesToCheck = AllAppAssemblies
-                    .Where(x => x.GetName().Name.StartsWith(namespacesPrefix.higherLayer)).ToArray();
-                _output.WriteLine(assembliesToCheck.Any()
-                    ? $"Checking {namespacesPrefix.higherLayer}.. does not rely on a {namespacesPrefix.lowerLayer}"
-                    : $"No projects found in {namespacesPrefix.higherLayer}.. namespace");
+                var projectsInBContext = groupToCheck.ToList();
 
-                foreach (var assemblyToCheck in assembliesToCheck)
+                foreach (var layerNames in _rulesChecker.CombinationOfLayerNames())
                 {
-                    var badLinks = assemblyToCheck.GetReferencedAssemblies()
-                        .Where(x => x.Name.StartsWith(namespacesPrefix.lowerLayer)).ToList();
-                    if (badLinks.Any())
+                    var projectsInLowerLayer = projectsInBContext
+                        .Where(x => x.LayerName == layerNames.lowerLayer)
+                        .ToList();
+
+                    foreach (var projectInLowerLayer in projectsInLowerLayer)
                     {
-                        hasErrors = true;
-                        foreach (var assemblyName in badLinks)
+                        var badReferencedProjects = projectInLowerLayer.PropertyAssembly.GetReferencedAssemblies()
+                            .Where(x => x.Name.StartsWith(_rulesChecker.AppNameAndLayer(groupToCheck.Key, layerNames.higherLayer)))
+                            .ToList();
+                        if (badReferencedProjects.Any())
                         {
-                            _output.WriteLine($"Assembly {assemblyToCheck.GetName().Name} should not link to project {assemblyName.Name}");
+                            var message =
+                                $"Project {projectInLowerLayer} links to projects in the higher layer {layerNames.higherLayer}\n    " +
+                                string.Join(" and ", badReferencedProjects.Select(x => x.Name));
+                            _rulesChecker.OutputMessage(message, _output, LogLevel.Error);
                         }
                     }
                 }
 
                 //VERIFY
-                Assert.False(hasErrors);
+                Assert.Equal(0, _rulesChecker.NumErrorsInTest);
             }
         }
+
 
         [Fact]
         public void TestOnlyAccessesProjectsInSameNameSpaceOtherThanCommon()
         {
-            var hasErrors = false;
-            foreach (var namespacePrefix in _layersPrefixInOrder)
+            var bContextGroup = _rulesChecker.ProjectsToScan.GroupBy(x => x.BContextName);
+            foreach (var groupToCheck in bContextGroup)
             {
-                var assembliesToCheck = AllAppAssemblies.Where(x => x.GetName().Name.StartsWith(namespacePrefix)).ToArray();
-                _output.WriteLine(assembliesToCheck.Any()
-                    ? $"Check {namespacePrefix}.. for linking to project in same layer that hasn't got \"Common\" in its name"
-                    : $"No projects found in {namespacePrefix}.. namespace");
+                var projectsInBContext = groupToCheck.ToList();
 
-                _output.WriteLine($"Check {namespacePrefix}.. for linking to project in same layer that hasn't got \"Common\" in its name");
-                foreach (var assemblyToCheck in AllAppAssemblies.Where(x => x.GetName().Name.StartsWith(namespacePrefix)))
+                foreach (var layerName in _rulesChecker.LayersNamesInOrder)
                 {
-                    var badLinks = assemblyToCheck.GetReferencedAssemblies()
-                        .Where(x => x.Name.StartsWith(namespacePrefix) && !x.Name.Contains("Common")).ToList();
-                    if (badLinks.Any())
+                    foreach (var assemblyToCheck in projectsInBContext.Where(x => x.LayerName == layerName))
                     {
-                        hasErrors = true;
-                        foreach (var assemblyName in badLinks)
+                        var badLinks = assemblyToCheck.PropertyAssembly.GetReferencedAssemblies()
+                            .Where(x => x.Name.StartsWith(_rulesChecker.AppNameAndLayer(groupToCheck.Key, layerName)) 
+                                        && !x.Name.Contains("Common")).ToList();
+                        if (badLinks.Any())
                         {
-                            _output.WriteLine($"Assembly {assemblyToCheck.GetName().Name} should not link to project {assemblyName.Name}");
+                            foreach (var assemblyName in badLinks)
+                            {
+                                _rulesChecker.OutputMessage(
+                                    $"Assembly {assemblyToCheck} should not link to project {assemblyName.Name}",
+                                    _output, LogLevel.Error);
+                            }
                         }
                     }
                 }
 
                 //VERIFY
-                Assert.False(hasErrors);
+                Assert.Equal(0, _rulesChecker.NumErrorsInTest);
             }
         }
 
