@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Microsoft.Extensions.Logging;
-using Test.TestHelpers;
 using Xunit;
 using Xunit.Abstractions;
 using Xunit.Extensions.AssertExtensions;
@@ -29,6 +27,7 @@ namespace Test.UnitTests
                 "Main.*");
         }
 
+        private LogLevel ShowLevel = LogLevel.Information;
 
         [Fact]
         public void CheckNoUnknownProjects()
@@ -81,6 +80,8 @@ namespace Test.UnitTests
             //VERIFY
             Assert.Equal(0, _rulesChecker.NumErrorsInTest);
         }
+
+        //--------------------------------------------------------------------------------
 
         [Fact]
         public void TestThatEachBoundedContextsObeysTheOneProjectPerLayer()
