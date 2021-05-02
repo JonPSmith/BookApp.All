@@ -59,10 +59,10 @@ namespace Test.UnitTests
 
             //ATTEMPT
             var bContextDir = _rulesChecker.GetBoundedContextLayerWithTheirReferencedProjectNames();
-            foreach (var firstBContextNames in bContextDir.Keys.Where(x => x != NameToAllowMultipleAccessed))
+            foreach (var firstBContextNames in bContextDir.Keys.Where(x => !x.Contains( NameToAllowMultipleAccessed)))
             {
                 foreach (var secondBContextNames in bContextDir.Keys
-                    .Where(x => x != NameToAllowMultipleAccessed && x != firstBContextNames))
+                    .Where(x => x != firstBContextNames && !x.Contains(NameToAllowMultipleAccessed)))
                 {
                     var badOverlaps = bContextDir[firstBContextNames]
                         .Where(x => bContextDir[secondBContextNames].Contains(x)
