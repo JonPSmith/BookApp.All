@@ -106,7 +106,7 @@ namespace Test.UnitTests
                         if (projectsReferredToInLowerLayer.Count > 1)
                         {
                                 var message =
-                                    $"Project {topLayerProject} links to multiple multiple projects in layer {layerNames.lowerLayer}\n    " +
+                                    $"Project {topLayerProject} links to multiple projects in layer {layerNames.lowerLayer}\n    " +
                                     string.Join(" and ", projectsReferredToInLowerLayer.Select(x => x.Name));
                             _rulesChecker.OutputMessage(message, _output, LogLevel.Error);
                         }

@@ -6,17 +6,13 @@ using System.Reflection;
 
 namespace Test.TestHelpers
 {
-    public enum ModMonTypes { Invalid, ThreePart, FourParts}
-
     public class ModMonProject
     {
+        private readonly string _name;
+
         protected bool Equals(ModMonProject other)
         {
-            return ProjectType == other.ProjectType 
-                   && AppName == other.AppName 
-                   && BContextName == other.BContextName 
-                   && LayerName == other.LayerName 
-                   && FeatureName == other.FeatureName;
+            return _name == other._name;
         }
 
         public override bool Equals(object obj)
@@ -29,50 +25,32 @@ namespace Test.TestHelpers
 
         public override int GetHashCode()
         {
-            return HashCode.Combine((int) ProjectType, AppName, BContextName, LayerName, FeatureName);
+            return HashCode.Combine(_name);
         }
 
         public ModMonProject(Assembly projectAssembly)
         {
             PropertyAssembly = projectAssembly;
+            _name = projectAssembly.GetName().Name;
 
             var split = projectAssembly.GetName().Name.Split('.');
-            if (split.Length < 3 || split.Length > 4)
-                return;
 
-            ProjectType = ModMonTypes.ThreePart;
             AppName = split[0];
-            BContextName = split[1];
-            LayerName = split[2];
-            if (split.Length != 4) 
-                return;
-
-            FeatureName = split[3];
-            ProjectType = ModMonTypes.FourParts;
+            if (split.Length > 1)
+                BContextName = split[1];
+            if (split.Length > 2)
+                LayerName = split[2];
         }
-
-        public ModMonTypes ProjectType { get; }
 
         public Assembly PropertyAssembly { get; }
 
         public string AppName { get; private set; }
         public string BContextName { get; private set; }
         public string LayerName { get; private set; }
-        public string FeatureName { get; private set; }
 
         public override string ToString()
         {
-            switch (ProjectType)
-            {
-                case ModMonTypes.Invalid:
-                    return "- invalid project name";
-                case ModMonTypes.ThreePart:
-                    return $"{AppName}.{BContextName}.{LayerName}";
-                case ModMonTypes.FourParts:
-                    return $"{AppName}.{BContextName}.{LayerName}.{FeatureName}";
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            return _name;
         }
     }
 }
