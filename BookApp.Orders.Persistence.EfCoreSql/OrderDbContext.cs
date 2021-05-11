@@ -36,7 +36,7 @@ namespace BookApp.Orders.Persistence.EfCoreSql
 /******************************************************************************
 * NOTES ON MIGRATION:
 *
-* BookApp.UI has two application DbContexts, BookDbContext and OrderDbContest
+* BookApp.Frontend has two application DbContexts, BookDbContext and OrderDbContest
 * Each has its own project, migrations and migration history table
 * You need to build a migration from the DbContext's project (see below)
 *
@@ -50,7 +50,7 @@ namespace BookApp.Orders.Persistence.EfCoreSql
 * 
 * 2. Using Package Manager Console commands
 * The steps are:
-* a) Make sure the default project is BookApp.Persistence.EfCoreSql.Orders
+* a) Make sure the default project is BookApp.Orders.Persistence.EfCoreSql
 * b) Use the PMC command
 *    Add-Migration NameForMigration -Context OrderDbContext
 * c) Use PMC command
